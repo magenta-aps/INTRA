@@ -1,0 +1,43 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres
+    env_file:
+    - .env
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U drupal"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    environment:
+      PGDATA: /var/lib/postgresql/data
+    volumes:
+    - database-data:/var/lib/postgresql/data/
+
+  drupal:
+    env_file:
+    - .env
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    ports:
+    - 9998:80
+    depends_on:
+      db:
+        condition: service_healthy
+
+  mailhog:
+    container_name: mailhog
+    image: mailhog/mailhog:v1.0.1
+    ports:
+    - 8025:8025
+    - 1025:1025
+
+  memcached:
+    image: memcached:latest
+    ports:
+    - 11211:11211
+
+volumes:
+  database-data:
