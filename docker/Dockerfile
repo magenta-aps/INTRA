@@ -34,7 +34,7 @@ RUN chmod 400 /opt/drupal/web/sites/default/settings.php \
 COPY --chown=www-data:www-data ./tests ./tests
 
 VOLUME /opt/drupal/config/sync
-VOLUME /opt/drupal/web/default/
+VOLUME /opt/drupal/web/sites/default/
 
 # Listen on Apache network port
 EXPOSE 80
