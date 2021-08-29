@@ -33,6 +33,8 @@ RUN chmod 400 /opt/drupal/web/sites/default/settings.php \
 
 COPY --chown=www-data:www-data ./tests ./tests
 
+COPY --chown=www-data:www-data ./web/profiles/custom/magentaintra_profile /opt/drupal/web/profiles/custom/magentaintra_profile
+
 VOLUME /opt/drupal/config/sync
 VOLUME /opt/drupal/web/default/
 

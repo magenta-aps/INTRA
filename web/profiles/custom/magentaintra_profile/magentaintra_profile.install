@@ -1,0 +1,36 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the magentaintra_profile installation profile.
+ */
+
+/**
+ * Implements hook_install_tasks().
+ *
+ * Enabled
+ */
+function magentaintra_profile_install_tasks(&$install_state) {
+  $tasks = [
+    'magentaintra_profile_install_simplesaml_roles' => [
+      'display_name' => t('Set up SimpleSAML roles mapping'),
+      'type' => 'normal',
+    ]
+  ];
+
+  return $tasks;
+}
+
+/**
+ * Callback function to install default profile content.
+ *
+ * @see magentaintra_profile_install_tasks()
+ */
+function magentaintra_profile_install_simplesaml_roles() {
+  $config = \Drupal::service('config.factory')
+    ->getEditable('simplesamlphp_auth.settings');
+
+  $roles = 'authenticated:http¤//schemas.xmlsoap.org/claims/Group,=,magentaintra_Godkendtbruger|editor:http¤//schemas.xmlsoap.org/claims/Group,=,magentaintra_Administrator|administrator:http¤//schemas.xmlsoap.org/claims/Group,=,magentaintra_Administrator';
+  $config->set('role.population', $roles);
+  $config->save();
+}
