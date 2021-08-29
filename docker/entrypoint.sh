@@ -36,7 +36,7 @@ if ! drush core-status --field=bootstrap | grep -q Successful ; then
     echo "Drupal is not bootstrapped - starting site-install"
     echo "Uninstalling Update Manager module"
     drush site-install \
-          standard \
+          magentaintra_profile \
           install_configure_form.enable_update_status_module=NULL \
           -y \
           --verbose \
