@@ -26,6 +26,9 @@ services:
     depends_on:
       db:
         condition: service_healthy
+    volumes: 
+    - ./composer.lock:/opt/drupal/composer.lock
+    - ./composer.json:/opt/drupal/composer.json
 
   mailhog:
     container_name: mailhog

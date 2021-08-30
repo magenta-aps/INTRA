@@ -5,6 +5,29 @@
  * Install, update and uninstall functions for the magentaintra_profile installation profile.
  */
 
+
+/**
+ * Implements hook_install().
+ */
+function magentaintra_profile_install() {
+  $theme_list = [
+      'claro',
+      'gin'
+  ];
+
+  // Install themes
+  \Drupal::service('theme_installer')->install($theme_list);
+
+  // Get theme manager
+  $system_theme = \Drupal::configFactory()->getEditable('system.theme');
+
+  // Set default and admin themes
+  $system_theme
+      ->set('default', 'gin')
+      ->set('admin', 'gin')
+      ->save();
+}
+
 /**
  * Implements hook_install_tasks().
  *
