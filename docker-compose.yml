@@ -51,5 +51,53 @@ services:
     ports:
     - 11211:11211
 
+  elasticsearch:
+    image: elasticsearch:7.14.0
+    container_name: elasticsearch
+    hostname: elasticsearch
+    environment:
+    - "discovery.type=single-node"
+    - "bootstrap.memory_lock=true"
+    - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ports:
+    - 9200:9200
+    - 9300:9300
+    networks:
+    - elknetwork
+
+  kibana:
+    image: kibana:7.14.0
+    container_name: kibana
+    hostname: kibana
+    ports:
+    - 5601:5601
+    links:
+    - elasticsearch:elasticsearch
+    depends_on:
+    - elasticsearch
+    networks:
+    - elknetwork
+
+  logstash:
+    image: logstash:7.14.0
+    container_name: logstash
+    hostname: logstash
+    ports:
+      - 9600:9600
+      - 8089:8089
+    volumes:
+      - .\logstash:/usr/share/logstash/pipeline/
+    links:
+      - elasticsearch:elasticsearch
+    command: logstash -f /logstash/logstash.conf
+    depends_on:
+      - elasticsearch
+    networks:
+      - elknetwork
+
 volumes:
   database-data:
+
+networks:
+  elknetwork:
+    driver: bridge
