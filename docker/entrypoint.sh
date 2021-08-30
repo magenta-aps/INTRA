@@ -39,6 +39,7 @@ if ! drush core-status --field=bootstrap | grep -q Successful ; then
           magentaintra_profile \
           install_configure_form.enable_update_status_module=NULL \
           -y \
+          --locale="da" \
           --verbose \
           --site-name="$SITE_NAME" \
           --site-mail="$SITE_MAIL" \
