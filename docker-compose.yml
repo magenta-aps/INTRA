@@ -86,10 +86,11 @@ services:
       - 9600:9600
       - 8089:8089
     volumes:
-      - .\logstash:/usr/share/logstash/pipeline/
+      - ./testfolder:/tmp/:rw
+      - ./logstash/logstash.conf:/etc/logstash/conf.d/logstash.conf:ro
     links:
       - elasticsearch:elasticsearch
-    command: logstash -f /logstash/logstash.conf
+    command: logstash -f /etc/logstash/conf.d/logstash.conf
     depends_on:
       - elasticsearch
     networks:
