@@ -91,6 +91,8 @@ services:
     links:
       - elasticsearch:elasticsearch
     command: logstash -f /etc/logstash/conf.d/logstash.conf
+    environment:
+      LS_JAVA_OPTS: "-Xmx256m -Xms256m"
     depends_on:
       - elasticsearch
     networks:
