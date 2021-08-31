@@ -28,6 +28,8 @@ COPY --chown=www-data:www-data ./docker/httpd.conf /etc/apache2/sites-available/
 COPY --chown=www-data:www-data ./docker/entrypoint.sh /opt/docker/entrypoint.sh
 COPY --chown=www-data:www-data ./web/sites/default/settings.php /opt/drupal/web/sites/default/settings.php
 
+COPY --chown=www-data:www-data ./docker/site-install.sh /opt/docker/site-install.sh
+
 RUN chmod 400 /opt/drupal/web/sites/default/settings.php \
     && install --mode=700 --owner=www-data --group=www-data -d /opt/drupal/web/sites/default/files
 
