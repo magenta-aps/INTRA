@@ -10,11 +10,20 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-    environment:
-      PGDATA: /var/lib/postgresql/data
     volumes:
     - database-data:/var/lib/postgresql/data/
 
+  drupal-init:
+    env_file:
+    - .env
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    command: /opt/docker/site-install.sh
+    depends_on:
+      db:
+        condition: service_healthy
+    
   drupal:
     env_file:
     - .env
@@ -26,6 +35,9 @@ services:
     depends_on:
       db:
         condition: service_healthy
+      drupal-init:
+        condition: service_completed_successfully
+
 
   mailhog:
     container_name: mailhog
