@@ -3,6 +3,8 @@ FROM drupal:9-php7.4-apache
 # Install PHP extensions - using this github.com/mlocati/docker-php-extension-installer
 ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
 
+ADD https://jdbc.postgresql.org/download/postgresql-42.2.6.jar /usr/local/bin/
+
 # Installing GIT, APCu, Uploadprogress and Memcached extensions for php 7
 # hadolint ignore=DL3008
 RUN set -eux \
