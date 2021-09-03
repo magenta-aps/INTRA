@@ -65,6 +65,8 @@ install:
   - views_ui
 
  # MagentaINTRA modules
+  - admin_toolbar
+  - gin_toolbar
   - memcache
   - memcache_admin
 
@@ -72,3 +74,4 @@ install:
 # Note that this will not set any theme as the default theme.
 themes:
   - claro
+  - gin
