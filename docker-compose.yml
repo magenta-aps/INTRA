@@ -77,6 +77,8 @@ services:
     hostname: kibana
     ports:
     - 5601:5601
+    volumes:
+      - ./kibana/config/:/usr/share/kibana/config/:ro
     links:
     - elasticsearch:elasticsearch
     depends_on:
