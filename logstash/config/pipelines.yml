@@ -2,9 +2,9 @@
 # For more information on multiple pipelines, see the documentation:
 #   https://www.elastic.co/guide/en/logstash/current/multiple-pipelines.html
 
-- pipeline.id: main1
-  path.config: "/usr/share/logstash/pipeline/logstash.conf"
+- pipeline.id: source1
+  path.config: "/usr/share/logstash/pipeline/logstash1.conf"
 
-- pipeline.id: main3
+- pipeline.id: source3
   path.config: "/usr/share/logstash/pipeline/logstash3.conf"
 

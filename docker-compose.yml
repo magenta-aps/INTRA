@@ -5,8 +5,6 @@ services:
     image: postgres
     env_file:
     - .env
-    ports:
-      - 5432:5432
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U drupal"]
       interval: 10s
@@ -97,7 +95,7 @@ services:
       - 8089:8089
     volumes:
       - ./testfolder:/tmp/:rw
-      - ./logstash/config/logstash.conf:/usr/share/logstash/pipeline/logstash.conf:ro
+      - ./logstash/config/logstash1.conf:/usr/share/logstash/pipeline/logstash1.conf:ro
       - ./logstash/config/pipelines.yml:/usr/share/logstash/config/pipelines.yml
       - ./logstash/config/logstash3.conf:/usr/share/logstash/pipeline/logstash3.conf:ro
       - ./logstash/postgresql-42.2.6.jar:/tmp/postgresql.jar:ro
