@@ -42,6 +42,7 @@ services:
     volumes:
     - ./composer.lock:/opt/drupal/composer.lock
     - ./composer.json:/opt/drupal/composer.json
+    - drupal-log:/var/log/apache2/
     networks:
       - elknetwork
 
@@ -96,11 +97,11 @@ services:
       - 9600:9600
       - 8089:8089
     volumes:
-      - ./testfolder:/tmp/:rw
       - ./logstash/config/logstash1.conf:/usr/share/logstash/pipeline/logstash1.conf:ro
       - ./logstash/config/pipelines.yml:/usr/share/logstash/config/pipelines.yml
       - ./logstash/config/logstash3.conf:/usr/share/logstash/pipeline/logstash3.conf:ro
       - ./logstash/postgresql-42.2.6.jar:/tmp/postgresql.jar:ro
+      - drupal-log:/var/log/apache2/
     links:
       - elasticsearch:elasticsearch
       - db:db
@@ -116,6 +117,7 @@ services:
 
 volumes:
   database-data:
+  drupal-log:
 
 networks:
   elknetwork:
