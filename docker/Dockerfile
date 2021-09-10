@@ -35,6 +35,8 @@ COPY --chown=www-data:www-data ./docker/site-install.sh /opt/docker/site-install
 RUN chmod 400 /opt/drupal/web/sites/default/settings.php \
     && install --mode=700 --owner=www-data --group=www-data -d /opt/drupal/web/sites/default/files
 
+RUN apt-get -y install rsyslog
+
 COPY --chown=www-data:www-data ./tests ./tests
 
 COPY --chown=www-data:www-data ./web/profiles/custom/magentaintra_profile /opt/drupal/web/profiles/custom/magentaintra_profile
