@@ -48,6 +48,7 @@
         "drupal/masquerade": "^2.0@beta",
         "drupal/masquerade_log": "^1.0",
         "drupal/memcache": "^2.3",
+        "drupal/menu_block": "^1.7",
         "drupal/module_filter": "^3.2",
         "drupal/paragraphs": "^1.12",
         "drupal/pathauto": "^1.8",

@@ -100,6 +100,7 @@ install:
   - media_library
   - memcache
   - memcache_admin
+  - menu_block
   - module_filter
   - paragraphs
   - pathauto
