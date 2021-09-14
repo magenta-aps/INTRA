@@ -20,9 +20,11 @@
         "drupal/core-composer-scaffold": "^9",
         "drupal/core-project-message": "^9",
         "drupal/core-recommended": "^9",
+        "drupal/elasticsearch_connector": "^7.0@alpha",
         "drupal/gin": "^3.0@alpha",
         "drupal/gin_toolbar": "^1.0@beta",
         "drupal/memcache": "^2.3",
+        "drupal/search_api": "^1.20",
         "drupal/taxonomy_menu": "^3.4",
         "drush/config-extra": "^1.0",
         "drush/drush": "^10.4",
@@ -30,8 +32,9 @@
     },
     "require-dev": {
         "codeception/codeception": "^4.1",
+        "codeception/module-asserts": "^1.0.0",
         "codeception/module-phpbrowser": "^1.0.0",
-        "codeception/module-asserts": "^1.0.0"
+        "drupal/devel": "^4.1"
     },
     "conflict": {
         "drupal/drupal": "*"
