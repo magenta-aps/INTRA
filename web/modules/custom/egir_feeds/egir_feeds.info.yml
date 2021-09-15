@@ -1,0 +1,9 @@
+name: EGIR feeds
+type: module
+description: 'Feeds for importing data from GIR/OS2mo'
+core: 8.x
+core_version_requirement: ^8 || ^9
+
+dependencies:
+  - feeds_ex
+  - keycloak
