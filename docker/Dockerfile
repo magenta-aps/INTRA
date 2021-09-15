@@ -28,10 +28,18 @@ COPY ./docker/custom-php.ini /usr/local/etc/php/conf.d/custom-php.ini
 COPY --chown=www-data:www-data ./docker/httpd.conf /etc/apache2/sites-available/000-default.conf
 COPY --chown=www-data:www-data ./docker/entrypoint.sh /opt/docker/entrypoint.sh
 COPY --chown=www-data:www-data ./web/sites/default/settings.php /opt/drupal/web/sites/default/settings.php
-
 COPY --chown=www-data:www-data ./docker/site-install.sh /opt/docker/site-install.sh
 
-RUN chmod 400 /opt/drupal/web/sites/default/settings.php \
+# Adding Drupal file system directories and setting permissions per documentation
+RUN mkdir -p files \
+    && mkdir -p private \
+    && mkdir -p config/sync \
+    && mkdir -p tmp \
+    && rm -rf /opt/drupal/web/sites/default/files \
+    && ln -sf /opt/drupal/files /opt/drupal/web/sites/default/files \
+    && chown -R www-data:www-data /opt/drupal/private /opt/drupal/files /opt/drupal/config/sync /opt/drupal/tmp \
+    && chmod g+s -R /opt/drupal/private /opt/drupal/files /opt/drupal/config/sync \
+    && chmod 400 /opt/drupal/web/sites/default/settings.php \
     && install --mode=700 --owner=www-data --group=www-data -d /opt/drupal/web/sites/default/files
 
 COPY --chown=www-data:www-data ./tests ./tests
