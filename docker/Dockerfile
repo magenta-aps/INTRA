@@ -38,8 +38,6 @@ RUN chmod 400 /opt/drupal/web/sites/default/settings.php \
 # clean logfolder for logs to work
 RUN rm /var/log/apache2/*
 
-RUN apt-get -y install rsyslog
-
 COPY --chown=www-data:www-data ./tests ./tests
 
 COPY --chown=www-data:www-data ./web/profiles/custom/magentaintra_profile /opt/drupal/web/profiles/custom/magentaintra_profile
