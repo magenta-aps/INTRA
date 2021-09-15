@@ -66,9 +66,55 @@ install:
 
  # MagentaINTRA modules
   - admin_toolbar
+  - admin_toolbar_search
+  - admin_toolbar_tools
+  - better_exposed_filters
+  - block_class
+  - chosen
+  - chosen_field
+  - context
+  - diff
+  - dropzonejs
+  - ds
+  - easy_breadcrumb
+  - entity_browser
+  - entity_embed
+  - entity_reference_revisions
+  - entity_usage
+  - extlink
+  - field_group
   - gin_toolbar
+  - image_widget_crop
+  - imce
+  - job_scheduler
+  - layout_builder
+  - layout_builder_modal
+  - layout_builder_styles
+  - layout_library
+  - lb_direct_add
+  - libraries
+  - linkit
+  - masquerade
+  - masquerade_log
+  - media
+  - media_library
   - memcache
   - memcache_admin
+  - menu_block
+  - module_filter
+  - paragraphs
+  - pathauto
+  - rules
+  - scheduler
+  - simplenews
+  - smart_content
+  - statistics
+  - syslog
+  - taxonomy_menu
+  - video_embed_field
+  - video_embed_media
+  - video_embed_wysiwyg
+
 
 # List any themes that should be installed as part of the profile installation.
 # Note that this will not set any theme as the default theme.
