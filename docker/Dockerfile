@@ -37,11 +37,9 @@ RUN mkdir -p files \
 	  && mkdir -p tmp \
 	  && rm -rf /opt/drupal/web/sites/default/files \
 	  && ln -sf /opt/drupal/files /opt/drupal/web/sites/default/files \
-	  # Adjusting ownership
 	  && chown -R www-data:www-data /opt/drupal/private /opt/drupal/files /opt/drupal/config/sync /opt/drupal/tmp \
-	  && chmod g+s -R /opt/drupal/private /opt/drupal/files /opt/drupal/config/sync
-
-RUN chmod 400 /opt/drupal/web/sites/default/settings.php \
+	  && chmod g+s -R /opt/drupal/private /opt/drupal/files /opt/drupal/config/sync \
+    && chmod 400 /opt/drupal/web/sites/default/settings.php \
     && install --mode=700 --owner=www-data --group=www-data -d /opt/drupal/web/sites/default/files
 
 COPY --chown=www-data:www-data ./tests ./tests
