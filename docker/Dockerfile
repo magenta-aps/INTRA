@@ -31,16 +31,14 @@ COPY --chown=www-data:www-data ./web/sites/default/settings.php /opt/drupal/web/
 COPY --chown=www-data:www-data ./docker/site-install.sh /opt/docker/site-install.sh
 
 # Adding Drupal file system directories and setting permissions per documentation
-RUN mkdir -p files \
-    && mkdir -p private \
+RUN mkdir -p private \
     && mkdir -p config/sync \
     && mkdir -p tmp \
-    && rm -rf /opt/drupal/web/sites/default/files \
-    && ln -sf /opt/drupal/files /opt/drupal/web/sites/default/files \
-    && chown -R www-data:www-data /opt/drupal/private /opt/drupal/files /opt/drupal/config/sync /opt/drupal/tmp \
-    && chmod g+s -R /opt/drupal/private /opt/drupal/files /opt/drupal/config/sync \
+    && chown -R www-data:www-data /opt/drupal/private /opt/drupal/config/sync /opt/drupal/tmp \
+    && chmod g+s -R /opt/drupal/private /opt/drupal/config/sync \
     && chmod 400 /opt/drupal/web/sites/default/settings.php \
-    && install --mode=700 --owner=www-data --group=www-data -d /opt/drupal/web/sites/default/files
+    && install --mode=700 --owner=www-data --group=www-data -d /opt/drupal/web/sites/default/files \
+    && install --mode=700 --owner=www-data --group=www-data -d /opt/drupal/web/sites/default/files/translations
 
 COPY --chown=www-data:www-data ./tests ./tests
 
