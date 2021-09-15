@@ -10,14 +10,14 @@ true "${POSTGRES_DB:?POSTGRES_DB is unset. Error.}"
 
 
 # Configure SMTP
-sed -i "s/\$SMTP_HOST/$SMTP_HOST/g" /etc/msmtp/msmtp.conf
-sed -i "s/\$SMTP_PORT/$SMTP_PORT/g" /etc/msmtp/msmtp.conf
-sed -i "s/\$SMTP_AUTH/$SMTP_AUTH/g" /etc/msmtp/msmtp.conf
-sed -i "s/\$SMTP_TLS/$SMTP_TLS/g" /etc/msmtp/msmtp.conf
-sed -i "s/\$SMTP_USER/$SMTP_USER/g" /etc/msmtp/msmtp.conf
-sed -i "s/\$SMTP_PASSWORD/$SMTP_PASSWORD/g" /etc/msmtp/msmtp.conf
-
-chown www-data: /etc/msmtp/msmtp.conf && chmod 600 /etc/msmtp/msmtp.conf
+cat << EOF > /etc/msmtp/msmtp.conf
+host ${SMTP_HOST:?SMTP_HOST is unset. Error.}
+port ${SMTP_PORT:-587}
+auth ${SMTP_AUTH:-on}
+tls ${SMTP_TLS:-on}
+user ${SMTP_USER:-}
+password ${SMTP_PASSWORD:-}
+EOF
 
 NUM=150
 until false
