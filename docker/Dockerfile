@@ -30,23 +30,14 @@ COPY --chown=www-data:www-data ./docker/entrypoint.sh /opt/docker/entrypoint.sh
 COPY --chown=www-data:www-data ./web/sites/default/settings.php /opt/drupal/web/sites/default/settings.php
 COPY --chown=www-data:www-data ./docker/site-install.sh /opt/docker/site-install.sh
 
-# Adding Drupal file system directories and setting permissions per documentation
-RUN mkdir -p private \
-    && mkdir -p config/sync \
-    && mkdir -p tmp \
-    && chown -R www-data:www-data /opt/drupal/private /opt/drupal/config/sync /opt/drupal/tmp \
-    && chmod g+s -R /opt/drupal/private /opt/drupal/config/sync \
-    && chmod 400 /opt/drupal/web/sites/default/settings.php \
-    && install --mode=700 --owner=www-data --group=www-data -d /opt/drupal/web/sites/default/files \
-    && install --mode=700 --owner=www-data --group=www-data -d /opt/drupal/web/sites/default/files/translations
-
 COPY --chown=www-data:www-data ./tests ./tests
 
 COPY --chown=www-data:www-data ./web/profiles/custom/magentaintra_profile /opt/drupal/web/profiles/custom/magentaintra_profile
 
 VOLUME /etc/msmtp
+VOLUME /opt/drupal/private
 VOLUME /opt/drupal/config/sync
-VOLUME /opt/drupal/web/sites/default/
+VOLUME /opt/drupal/web/sites/default
 
 # Listen on Apache network port
 EXPOSE 80
