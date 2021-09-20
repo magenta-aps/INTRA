@@ -271,7 +271,7 @@ $databases['default']['default'] = array (
  * directory in the public files path. The setting below allows you to set
  * its location.
  */
-$settings['config_sync_directory'] = '/opt/drupal/config/sync';
+$settings['config_sync_directory'] = '../config/sync';
 
 /**
  * Settings:
@@ -554,7 +554,7 @@ if ($settings['hash_salt']) {
  * See https://www.drupal.org/documentation/modules/file for more information
  * about securing private files.
  */
-# $settings['file_private_path'] = '';
+$settings['file_private_path'] = '../private';
 
 /**
  * Temporary file path:
@@ -567,7 +567,7 @@ if ($settings['hash_salt']) {
  *
  * @see \Drupal\Component\FileSystem\FileSystem::getOsTemporaryDirectory()
  */
-# $settings['file_temp_path'] = '/tmp';
+$settings['file_temp_path'] = '../tmp';
 
 /**
  * Session write interval:
@@ -651,7 +651,7 @@ if ($settings['hash_salt']) {
  * configuration values in settings.php will not fire any of the configuration
  * change events.
  */
-# $config['system.site']['name'] = 'My Drupal site';
+$config['system.site']['name'] = getenv('SITE_NAME');
 # $config['user.settings']['anonymous'] = 'Visitor';
 
 /**

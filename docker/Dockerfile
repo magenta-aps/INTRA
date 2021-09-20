@@ -15,7 +15,9 @@ RUN set -eux \
     && apt-get install -y --no-install-recommends git unzip libz-dev libmemcached-dev msmtp postgresql \
     && pecl install apcu uploadprogress memcached \
     && docker-php-ext-enable apcu uploadprogress memcached \
-    && apt-get clean && rm -rf "/var/lib/apt/lists/*" "/tmp/*" "/var/tmp/*" "/usr/share/man/??" "/usr/share/man/??_*"
+    && apt-get clean && rm -rf "/var/lib/apt/lists/*" "/tmp/*" "/var/tmp/*" "/usr/share/man/??" "/usr/share/man/??_*" \
+    # like `touch`, but with mode, owner, group and creation of parent dirs.
+    && install --mode=600 --owner=www-data --group=www-data -D /dev/null /etc/msmtp/msmtp.conf
 
 # Install composer packages and set permissions on/in Drupal folder
 WORKDIR /opt/drupal/
@@ -24,16 +26,21 @@ RUN COMPOSER_MEMORY_LIMIT=-1 composer install \
     && chown -R www-data:www-data /opt/drupal/web/
 
 # Copy configuration files
-COPY --chown=www-data:www-data ./docker/msmtp.conf /etc/msmtp/msmtp.conf
 COPY ./docker/custom-php.ini /usr/local/etc/php/conf.d/custom-php.ini
 COPY --chown=www-data:www-data ./docker/httpd.conf /etc/apache2/sites-available/000-default.conf
 COPY --chown=www-data:www-data ./docker/entrypoint.sh /opt/docker/entrypoint.sh
 COPY --chown=www-data:www-data ./web/sites/default/settings.php /opt/drupal/web/sites/default/settings.php
-
 COPY --chown=www-data:www-data ./docker/site-install.sh /opt/docker/site-install.sh
 
-RUN chmod 400 /opt/drupal/web/sites/default/settings.php \
-    && install --mode=700 --owner=www-data --group=www-data -d /opt/drupal/web/sites/default/files
+# Adding Drupal file system directories and setting permissions per documentation
+RUN mkdir -p private \
+    && mkdir -p config/sync \
+    && mkdir -p tmp \
+    && chown -R www-data:www-data /opt/drupal/private /opt/drupal/config/sync /opt/drupal/tmp \
+    && chmod g+s -R /opt/drupal/private /opt/drupal/config/sync \
+    && chmod 400 /opt/drupal/web/sites/default/settings.php \
+    && install --mode=700 --owner=www-data --group=www-data -d /opt/drupal/web/sites/default/files \
+    && install --mode=700 --owner=www-data --group=www-data -d /opt/drupal/web/sites/default/files/translations
 
 # clean logfolder for logs to work
 RUN rm /var/log/apache2/*
@@ -42,6 +49,7 @@ COPY --chown=www-data:www-data ./tests ./tests
 
 COPY --chown=www-data:www-data ./web/profiles/custom/magentaintra_profile /opt/drupal/web/profiles/custom/magentaintra_profile
 
+VOLUME /etc/msmtp
 VOLUME /opt/drupal/config/sync
 VOLUME /opt/drupal/web/sites/default/
 
