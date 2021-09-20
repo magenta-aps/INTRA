@@ -66,6 +66,7 @@ install:
 
  # MagentaINTRA modules
   - admin_toolbar
+  - elasticsearch_connector
   - gin_toolbar
   - memcache
   - memcache_admin
