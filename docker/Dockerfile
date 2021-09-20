@@ -34,10 +34,9 @@ COPY --chown=www-data:www-data ./tests ./tests
 
 COPY --chown=www-data:www-data ./web/profiles/custom/magentaintra_profile /opt/drupal/web/profiles/custom/magentaintra_profile
 
-VOLUME /etc/msmtp
-VOLUME /opt/drupal/private
-VOLUME /opt/drupal/config
-VOLUME /opt/drupal/web/sites/default
+VOLUME /etc/msmtp/
+VOLUME /opt/drupal/config/sync/
+VOLUME /opt/drupal/web/sites/default/
 
 # Listen on Apache network port
 EXPOSE 80
