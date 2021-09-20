@@ -348,16 +348,16 @@
         },
         {
             "name": "consolidation/annotated-command",
-            "version": "4.3.1",
+            "version": "4.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/annotated-command.git",
-                "reference": "386d2c9253675bbb4b7f04c6bc52f8e74c0d4cc6"
+                "reference": "101c7dd0388259cfbba41b705b9255d2b1976bbf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/annotated-command/zipball/386d2c9253675bbb4b7f04c6bc52f8e74c0d4cc6",
-                "reference": "386d2c9253675bbb4b7f04c6bc52f8e74c0d4cc6",
+                "url": "https://api.github.com/repos/consolidation/annotated-command/zipball/101c7dd0388259cfbba41b705b9255d2b1976bbf",
+                "reference": "101c7dd0388259cfbba41b705b9255d2b1976bbf",
                 "shasum": ""
             },
             "require": {
@@ -397,9 +397,9 @@
             "description": "Initialize Symfony Console commands from annotated command class methods.",
             "support": {
                 "issues": "https://github.com/consolidation/annotated-command/issues",
-                "source": "https://github.com/consolidation/annotated-command/tree/4.3.1"
+                "source": "https://github.com/consolidation/annotated-command/tree/4.3.2"
             },
-            "time": "2021-08-30T03:50:47+00:00"
+            "time": "2021-09-19T14:35:36+00:00"
         },
         {
             "name": "consolidation/config",
@@ -1355,16 +1355,16 @@
         },
         {
             "name": "drupal/core",
-            "version": "9.2.5",
+            "version": "9.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core.git",
-                "reference": "96bb4da48ed4d5892247b8afed55ca3db9bc47f6"
+                "reference": "c51e9d9e28c08e284ff57ca42504cfe0ec9522db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core/zipball/96bb4da48ed4d5892247b8afed55ca3db9bc47f6",
-                "reference": "96bb4da48ed4d5892247b8afed55ca3db9bc47f6",
+                "url": "https://api.github.com/repos/drupal/core/zipball/c51e9d9e28c08e284ff57ca42504cfe0ec9522db",
+                "reference": "c51e9d9e28c08e284ff57ca42504cfe0ec9522db",
                 "shasum": ""
             },
             "require": {
@@ -1603,13 +1603,13 @@
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
             "support": {
-                "source": "https://github.com/drupal/core/tree/9.2.5"
+                "source": "https://github.com/drupal/core/tree/9.2.6"
             },
-            "time": "2021-09-01T21:51:44+00:00"
+            "time": "2021-09-14T22:07:47+00:00"
         },
         {
             "name": "drupal/core-composer-scaffold",
-            "version": "9.2.5",
+            "version": "9.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-composer-scaffold.git",
@@ -1653,13 +1653,13 @@
                 "drupal"
             ],
             "support": {
-                "source": "https://github.com/drupal/core-composer-scaffold/tree/9.2.5"
+                "source": "https://github.com/drupal/core-composer-scaffold/tree/9.2.6"
             },
             "time": "2021-08-24T12:04:07+00:00"
         },
         {
             "name": "drupal/core-project-message",
-            "version": "9.2.5",
+            "version": "9.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-project-message.git",
@@ -1694,22 +1694,22 @@
                 "drupal"
             ],
             "support": {
-                "source": "https://github.com/drupal/core-project-message/tree/9.2.5"
+                "source": "https://github.com/drupal/core-project-message/tree/9.2.6"
             },
             "time": "2020-09-14T13:40:36+00:00"
         },
         {
             "name": "drupal/core-recommended",
-            "version": "9.2.5",
+            "version": "9.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-recommended.git",
-                "reference": "a6738810628a3ee04a49265191b43b2b2de5aa60"
+                "reference": "e9bbd6d45dddc02157ea675b557c604feb31c80d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core-recommended/zipball/a6738810628a3ee04a49265191b43b2b2de5aa60",
-                "reference": "a6738810628a3ee04a49265191b43b2b2de5aa60",
+                "url": "https://api.github.com/repos/drupal/core-recommended/zipball/e9bbd6d45dddc02157ea675b557c604feb31c80d",
+                "reference": "e9bbd6d45dddc02157ea675b557c604feb31c80d",
                 "shasum": ""
             },
             "require": {
@@ -1718,7 +1718,7 @@
                 "doctrine/annotations": "1.13.1",
                 "doctrine/lexer": "1.2.1",
                 "doctrine/reflection": "1.2.2",
-                "drupal/core": "9.2.5",
+                "drupal/core": "9.2.6",
                 "egulias/email-validator": "2.1.25",
                 "guzzlehttp/guzzle": "6.5.5",
                 "guzzlehttp/promises": "1.4.1",
@@ -1781,9 +1781,9 @@
             ],
             "description": "Locked core dependencies; require this project INSTEAD OF drupal/core.",
             "support": {
-                "source": "https://github.com/drupal/core-recommended/tree/9.2.5"
+                "source": "https://github.com/drupal/core-recommended/tree/9.2.6"
             },
-            "time": "2021-09-01T21:51:44+00:00"
+            "time": "2021-09-14T22:07:47+00:00"
         },
         {
             "name": "drupal/elasticsearch_connector",
@@ -2121,26 +2121,29 @@
         },
         {
             "name": "drupal/taxonomy_menu",
-            "version": "dev-3.x",
+            "version": "3.5.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/taxonomy_menu.git",
-                "reference": "7320f41749556027a4b9f968cee9464b0f275def"
+                "reference": "8.x-3.5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/taxonomy_menu-8.x-3.5.zip",
+                "reference": "8.x-3.5",
+                "shasum": "249f11392ee222067732718fe73f951afc5a881f"
             },
             "require": {
                 "drupal/core": "^8 || ^9"
             },
             "type": "drupal-module",
             "extra": {
-                "branch-alias": {
-                    "dev-3.x": "3.x-dev"
-                },
                 "drupal": {
-                    "version": "8.x-3.4+21-dev",
-                    "datestamp": "1596791490",
+                    "version": "8.x-3.5",
+                    "datestamp": "1631710782",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Dev releases are not covered by Drupal security advisories."
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
                 }
             },
@@ -2149,6 +2152,10 @@
                 "GPL-2.0+"
             ],
             "authors": [
+                {
+                    "name": "DamienMcKenna",
+                    "homepage": "https://www.drupal.org/user/108450"
+                },
                 {
                     "name": "NickDickinsonWilde",
                     "homepage": "https://www.drupal.org/user/3094661"
@@ -8855,16 +8862,16 @@
         },
         {
             "name": "phpdocumentor/type-resolver",
-            "version": "1.4.0",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/TypeResolver.git",
-                "reference": "6a467b8989322d92aa1c8bf2bebcc6e5c2ba55c0"
+                "reference": "30f38bffc6f24293dadd1823936372dfa9e86e2f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/6a467b8989322d92aa1c8bf2bebcc6e5c2ba55c0",
-                "reference": "6a467b8989322d92aa1c8bf2bebcc6e5c2ba55c0",
+                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/30f38bffc6f24293dadd1823936372dfa9e86e2f",
+                "reference": "30f38bffc6f24293dadd1823936372dfa9e86e2f",
                 "shasum": ""
             },
             "require": {
@@ -8872,7 +8879,8 @@
                 "phpdocumentor/reflection-common": "^2.0"
             },
             "require-dev": {
-                "ext-tokenizer": "*"
+                "ext-tokenizer": "*",
+                "psalm/phar": "^4.8"
             },
             "type": "library",
             "extra": {
@@ -8898,9 +8906,9 @@
             "description": "A PSR-5 based resolver of Class names, Types and Structural Element Names",
             "support": {
                 "issues": "https://github.com/phpDocumentor/TypeResolver/issues",
-                "source": "https://github.com/phpDocumentor/TypeResolver/tree/1.4.0"
+                "source": "https://github.com/phpDocumentor/TypeResolver/tree/1.5.0"
             },
-            "time": "2020-09-17T18:55:26+00:00"
+            "time": "2021-09-17T15:28:14+00:00"
         },
         {
             "name": "phpspec/prophecy",
@@ -8971,23 +8979,23 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "9.2.6",
+            "version": "9.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "f6293e1b30a2354e8428e004689671b83871edde"
+                "reference": "d4c798ed8d51506800b441f7a13ecb0f76f12218"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/f6293e1b30a2354e8428e004689671b83871edde",
-                "reference": "f6293e1b30a2354e8428e004689671b83871edde",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/d4c798ed8d51506800b441f7a13ecb0f76f12218",
+                "reference": "d4c798ed8d51506800b441f7a13ecb0f76f12218",
                 "shasum": ""
             },
             "require": {
                 "ext-dom": "*",
                 "ext-libxml": "*",
                 "ext-xmlwriter": "*",
-                "nikic/php-parser": "^4.10.2",
+                "nikic/php-parser": "^4.12.0",
                 "php": ">=7.3",
                 "phpunit/php-file-iterator": "^3.0.3",
                 "phpunit/php-text-template": "^2.0.2",
@@ -9036,7 +9044,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/php-code-coverage/issues",
-                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/9.2.6"
+                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/9.2.7"
             },
             "funding": [
                 {
@@ -9044,7 +9052,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-03-28T07:26:59+00:00"
+            "time": "2021-09-17T05:39:03+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -10243,7 +10251,6 @@
                     "type": "github"
                 }
             ],
-            "abandoned": true,
             "time": "2020-09-28T06:45:17+00:00"
         },
         {
