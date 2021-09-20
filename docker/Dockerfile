@@ -36,7 +36,7 @@ COPY --chown=www-data:www-data ./web/profiles/custom/magentaintra_profile /opt/d
 
 VOLUME /etc/msmtp
 VOLUME /opt/drupal/private
-VOLUME /opt/drupal/config/sync
+VOLUME /opt/drupal/config
 VOLUME /opt/drupal/web/sites/default
 
 # Listen on Apache network port
