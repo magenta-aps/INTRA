@@ -84,7 +84,8 @@ services:
     - elasticsearch
 
   logstash:
-    image: logstash:7.14.0
+    build:
+      context: logstash
     env_file:
       - .env
     ports:
@@ -94,7 +95,6 @@ services:
       - ./logstash/config/logstash1.conf:/usr/share/logstash/pipeline/logstash1.conf:ro
       - ./logstash/config/pipelines.yml:/usr/share/logstash/config/pipelines.yml
       - ./logstash/config/logstash3.conf:/usr/share/logstash/pipeline/logstash3.conf:ro
-      - ./logstash/postgresql-42.2.6.jar:/tmp/postgresql.jar:ro
     environment:
       LS_JAVA_OPTS: "-Xmx256m -Xms256m"
     depends_on:
