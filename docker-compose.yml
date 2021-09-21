@@ -13,7 +13,7 @@ services:
     volumes:
     - database-data:/var/lib/postgresql/data/
     networks:
-    - elknetwork
+    - elasticsearch
 
   drupal-init:
     env_file:
@@ -26,7 +26,7 @@ services:
       db:
         condition: service_healthy
     networks:
-      - elknetwork
+      - elasticsearch
 
   drupal:
     env_file:
@@ -44,7 +44,7 @@ services:
     - ./composer.json:/opt/drupal/composer.json
     - drupal-log:/var/log/apache2/
     networks:
-      - elknetwork
+      - elasticsearch
 
   mailhog:
     container_name: mailhog
@@ -60,8 +60,6 @@ services:
 
   elasticsearch:
     image: elasticsearch:7.14.0
-    container_name: elasticsearch
-    hostname: elasticsearch
     environment:
     - "discovery.type=single-node"
     - "bootstrap.memory_lock=true"
@@ -70,7 +68,7 @@ services:
     - 9200:9200
     - 9300:9300
     networks:
-    - elknetwork
+    - elasticsearch
 
   kibana:
     image: kibana:7.14.0
@@ -80,19 +78,15 @@ services:
     - 5601:5601
     volumes:
       - ./kibana/config/:/usr/share/kibana/config/:ro
-    links:
-    - elasticsearch:elasticsearch
     depends_on:
     - elasticsearch
     networks:
-    - elknetwork
+    - elasticsearch
 
   logstash:
     image: logstash:7.14.0
     env_file:
       - .env
-    container_name: logstash
-    hostname: logstash
     ports:
       - 9600:9600
       - 8089:8089
@@ -101,24 +95,18 @@ services:
       - ./logstash/config/pipelines.yml:/usr/share/logstash/config/pipelines.yml
       - ./logstash/config/logstash3.conf:/usr/share/logstash/pipeline/logstash3.conf:ro
       - ./logstash/postgresql-42.2.6.jar:/tmp/postgresql.jar:ro
-      - drupal-log:/var/log/apache2/
-    links:
-      - elasticsearch:elasticsearch
-      - db:db
-    command: logstash
-
     environment:
       LS_JAVA_OPTS: "-Xmx256m -Xms256m"
     depends_on:
       - db
       - elasticsearch
     networks:
-      - elknetwork
+      - elasticsearch
 
 volumes:
   database-data:
   drupal-log:
 
 networks:
-  elknetwork:
+  elasticsearch:
     driver: bridge

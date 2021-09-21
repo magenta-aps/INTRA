@@ -3,8 +3,6 @@ FROM drupal:9-php7.4-apache
 # Install PHP extensions - using this github.com/mlocati/docker-php-extension-installer
 ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
 
-ADD https://jdbc.postgresql.org/download/postgresql-42.2.6.jar /usr/local/bin/
-
 # Installing GIT, APCu, Uploadprogress and Memcached extensions for php 7
 # hadolint ignore=DL3008
 RUN set -eux \
@@ -41,9 +39,6 @@ RUN mkdir -p private \
     && chmod 400 /opt/drupal/web/sites/default/settings.php \
     && install --mode=700 --owner=www-data --group=www-data -d /opt/drupal/web/sites/default/files \
     && install --mode=700 --owner=www-data --group=www-data -d /opt/drupal/web/sites/default/files/translations
-
-# clean logfolder for logs to work
-RUN rm /var/log/apache2/*
 
 COPY --chown=www-data:www-data ./tests ./tests
 
