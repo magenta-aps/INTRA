@@ -29,7 +29,13 @@ function get_openid_auth_token() {
     $body = json_decode($response->getBody(), true); 
     $access_token = $body['access_token'];
 
+   /*
+    \Drupal::logger(
+       'gir_feeds'
+    )->notice('Got acces token: ' . $access_token);
+    */
     return $access_token;
+
   } else {
     return '';	    
   }
