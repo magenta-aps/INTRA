@@ -8,7 +8,7 @@ dependencies:
     - user
 id: employees
 label: Employees
-description: 'Import GIR employees as users in EGIR/Drupal'
+description: 'Import GIR employees as users in GIR/Drupal'
 help: 'You can import all employees in an organisation using /service/o/<org-uuid>/e/.'
 import_period: 3600
 fetcher: keycloakauth

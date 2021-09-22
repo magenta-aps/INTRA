@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\egir_feeds\Feeds\Fetcher;
+namespace Drupal\gir_feeds\Feeds\Fetcher;
 
 // This class was heavily inspired by the corresponding class from the
 // feeds_http_auth_fetcher Drupal module by Michael Favia and is used
@@ -16,7 +16,7 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\RequestOptions;
 use Symfony\Component\HttpFoundation\Response;
 use Drupal\feeds\FeedInterface;
-use Drupal\egir_feeds\get_openid_auth_token;
+use Drupal\gir_feeds\get_openid_auth_token;
 
 /**
  * Defines an HTTP fetcher.
