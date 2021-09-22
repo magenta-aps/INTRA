@@ -1,4 +1,4 @@
-langcode: en
+langcode: da
 status: true
 dependencies:
   config:
@@ -6,6 +6,8 @@ dependencies:
     - taxonomy.vocabulary.orgunit
   module:
     - feeds
+_core:
+  default_config_hash: 5ie3zN6xgYSL3bW1Fr-4J-auTIIlCe9ljni7s_eUaeY
 id: taxonomy_term.orgunit.feeds_item
 field_name: feeds_item
 entity_type: taxonomy_term

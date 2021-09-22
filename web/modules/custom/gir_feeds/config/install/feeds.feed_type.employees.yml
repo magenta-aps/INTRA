@@ -1,7 +1,8 @@
-langcode: en
+langcode: da
 status: true
 dependencies:
   config:
+    - field.field.user.user.field_organisation
     - field.field.user.user.field_uuid
   module:
     - feeds_ex
@@ -11,13 +12,13 @@ label: Employees
 description: 'Import GIR employees as users in GIR/Drupal'
 help: 'You can import all employees in an organisation using /service/o/<org-uuid>/e/.'
 import_period: 3600
-fetcher: keycloakauth
+fetcher: http
 fetcher_configuration:
-  auto_detect_feeds: 0
-  use_pubsubhubbub: 0
-  always_download: 0
+  auto_detect_feeds: false
+  use_pubsubhubbub: false
+  always_download: false
   fallback_hub: ''
-  request_timeout: '30'
+  request_timeout: 30
 parser: jsonpath
 parser_configuration:
   context:
@@ -29,6 +30,9 @@ parser_configuration:
     field_uuid:
       label: uuid
       value: uuid
+    org_name:
+      label: org.name
+      value: org.name
   display_errors: false
   source_encoding:
     - auto
@@ -40,7 +44,7 @@ processor_configuration:
   update_existing: 2
   update_non_existent: _delete
   expire: -1
-  skip_hash_check: false
+  skip_hash_check: true
   owner_id: 0
   values: {  }
   authorize: false
@@ -62,6 +66,14 @@ custom_sources:
     label: uuid
     value: uuid
     machine_name: field_uuid
+  org_uuid:
+    label: org.uuid
+    value: org.uuid
+    machine_name: org_uuid
+  org_name:
+    label: org.name
+    value: org.name
+    machine_name: org_name
 mappings:
   -
     target: name
@@ -75,5 +87,12 @@ mappings:
       value: field_uuid
     unique:
       value: '1'
+    settings:
+      language: null
+  -
+    target: field_organisation
+    map:
+      value: org_name
+    unique: {  }
     settings:
       language: null

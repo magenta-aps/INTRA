@@ -2,16 +2,16 @@ langcode: da
 status: true
 dependencies:
   config:
-    - field.storage.taxonomy_term.field_user_key
+    - field.storage.taxonomy_term.field_parent
     - taxonomy.vocabulary.orgunit
-id: taxonomy_term.orgunit.field_user_key
-field_name: field_user_key
+id: taxonomy_term.orgunit.field_parent
+field_name: field_parent
 entity_type: taxonomy_term
 bundle: orgunit
-label: user_key
+label: Forælder
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
