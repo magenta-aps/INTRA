@@ -12,7 +12,7 @@ label: Employees
 description: 'Import GIR employees as users in GIR/Drupal'
 help: 'You can import all employees in an organisation using /service/o/<org-uuid>/e/.'
 import_period: 3600
-fetcher: http
+fetcher: keycloakauth
 fetcher_configuration:
   auto_detect_feeds: false
   use_pubsubhubbub: false
