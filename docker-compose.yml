@@ -38,7 +38,6 @@ services:
     volumes: 
     - ./composer.lock:/opt/drupal/composer.lock
     - ./composer.json:/opt/drupal/composer.json
-    - ./web/modules/custom:/opt/drupal/web/modules/custom
 
   mailhog:
     container_name: mailhog
