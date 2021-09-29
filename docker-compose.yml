@@ -74,6 +74,7 @@ services:
     image: kibana:7.14.0
     env_file:
       - .env
+      - dev-environment/elk.env
     ports:
     - 5601:5601
     volumes:
@@ -88,6 +89,7 @@ services:
       context: logstash
     env_file:
       - .env
+      - dev-environment/elk.env
     ports:
       - 9600:9600
       - 8089:8089
