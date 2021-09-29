@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9056d1a86ed7932958ffc9bebb58e862",
+    "content-hash": "d9c791b1aa4fba99e779dae21d6997a0",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -6961,16 +6961,16 @@
         },
         {
             "name": "magentaaps/gir_feeds",
-            "version": "dev-main",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/magenta-aps/gir_feeds.git",
-                "reference": "3465c93f6381ed962a06da6c19acc6f701867713"
+                "reference": "f61db9414ceab616b68846a197657b9823bd4f9a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/magenta-aps/gir_feeds/zipball/3465c93f6381ed962a06da6c19acc6f701867713",
-                "reference": "3465c93f6381ed962a06da6c19acc6f701867713",
+                "url": "https://api.github.com/repos/magenta-aps/gir_feeds/zipball/f61db9414ceab616b68846a197657b9823bd4f9a",
+                "reference": "f61db9414ceab616b68846a197657b9823bd4f9a",
                 "shasum": ""
             },
             "require": {
@@ -6985,7 +6985,6 @@
                 "drupal/devel": "^4.1",
                 "drupal/twig_tweak": "^3.1"
             },
-            "default-branch": true,
             "type": "drupal-module",
             "autoload": {
                 "psr-4": {
@@ -6999,9 +6998,9 @@
             "description": "Feeds for getting data from GIR/OS2mo.",
             "support": {
                 "issues": "https://github.com/magenta-aps/gir_feeds/issues",
-                "source": "https://github.com/magenta-aps/gir_feeds/tree/main"
+                "source": "https://github.com/magenta-aps/gir_feeds/tree/1.0.0"
             },
-            "time": "2021-09-28T08:38:03+00:00"
+            "time": "2021-09-29T10:05:47+00:00"
         },
         {
             "name": "masterminds/html5",
@@ -16920,8 +16919,7 @@
         "drupal/layout_library": 10,
         "drupal/libraries": 10,
         "drupal/masquerade": 10,
-        "drupal/simplenews": 10,
-        "magentaaps/gir_feeds": 20
+        "drupal/simplenews": 10
     },
     "prefer-stable": true,
     "prefer-lowest": false,
