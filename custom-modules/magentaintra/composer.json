@@ -1,0 +1,32 @@
+{
+    "name": "magentaaps/magentaintra",
+    "description": "Magentaintra is a module to install and configure the intranet instance",
+    "type": "drupal-module",
+    "license": "GPL-2.0-or-later",
+    "autoload": {
+        "psr-4": {
+            "Drupal\\MagentaIntra\\": "src/"
+        }
+    },
+    "require": {
+        "drupal/feeds_ex": "^1.0@alpha",
+        "drupal/keycloak": "^1.5",
+        "drupal/simplesamlphp_auth": "^3.2"
+
+    },
+    "require-dev": {
+        "codeception/codeception": "^4.1",
+        "codeception/module-asserts": "^1.0.0",
+        "codeception/module-phpbrowser": "^1.0.0",
+        "drupal/devel": "^4.1",
+        "drupal/twig_tweak": "^3.1"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true
+    }
+
+
+}
+
