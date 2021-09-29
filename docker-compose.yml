@@ -54,7 +54,7 @@ services:
   db:
     image: postgres
     env_file:
-      - os2forms.env
+      - .env
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U drupal"]
       interval: 10s
