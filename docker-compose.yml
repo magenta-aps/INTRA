@@ -95,7 +95,7 @@ services:
       - 8089:8089
     volumes:
       - ./logstash/config/logstash1.conf:/usr/share/logstash/pipeline/logstash1.conf:ro
-      - ./logstash/config/pipelines.yml:/usr/share/logstash/config/pipelines.yml
+      - ./logstash/config/pipelines.yml:/usr/share/logstash/config/pipelines.yml:ro
       - ./logstash/config/logstash3.conf:/usr/share/logstash/pipeline/logstash3.conf:ro
     environment:
       LS_JAVA_OPTS: "-Xmx256m -Xms256m"
