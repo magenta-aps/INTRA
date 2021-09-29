@@ -1,56 +1,80 @@
 version: '3.9'
 
+x-drupal-base: &drupal-base
+    env_file:
+      - .env
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    volumes:
+      - ./composer.lock:/opt/drupal/composer.lock
+      - ./composer.json:/opt/drupal/composer.json
+      - ./dev-environment/config.json:/root/.composer/config.json
+      - ./web:/opt/drupal/web/
+      - ./site-settings.php:/opt/drupal/web/sites/default/settings.php
+      - ./custom-profiles:/opt/drupal/web/profiles/custom/
+
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
 services:
+  drupal-dev-env:
+    # Initialises the `web` folder with all the composer package. This is an
+    # replacement to the packages inside the image.
+    # `dev-environment/config.json` ensures that interesting packages are
+    # installed as source.
+    <<: *drupal-base
+    environment:
+      COMPOSER_MEMORY_LIMIT: -1
+    entrypoint: []
+    # It should be possible to replace `dev-environment/config.json` with the
+    # `--prefer-install=source` flag on `composer install`.
+    #
+    # The web folder become owned by root. We run chmod o+w on it to make sure
+    # the user account on the host machine can access it.
+    command: ["sh", "-c", "composer install && chmod -R o+w web"]
+
+  drupal-init:
+    <<: *drupal-base
+    command: /opt/docker/site-install.sh
+    depends_on:
+      db:
+        condition: service_healthy
+      drupal-dev-env:
+        condition: service_completed_successfully
+
+  drupal:
+    <<: *drupal-base
+    ports:
+      - 9998:80
+    depends_on:
+      db:
+        condition: service_healthy
+      drupal-init:
+        condition: service_completed_successfully
+
   db:
     image: postgres
     env_file:
-    - .env
+      - .env
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U drupal"]
       interval: 10s
       timeout: 5s
       retries: 5
     volumes:
-    - database-data:/var/lib/postgresql/data/
-
-  drupal-init:
-    env_file:
-    - .env
-    build:
-      context: .
-      dockerfile: docker/Dockerfile
-    command: /opt/docker/site-install.sh
-    depends_on:
-      db:
-        condition: service_healthy
-    
-  drupal:
-    env_file:
-    - .env
-    build:
-      context: .
-      dockerfile: docker/Dockerfile
-    ports:
-    - 9998:80
-    depends_on:
-      db:
-        condition: service_healthy
-    volumes: 
-    - ./composer.lock:/opt/drupal/composer.lock
-    - ./composer.json:/opt/drupal/composer.json
+      - database-data:/var/lib/postgresql/data/
 
   mailhog:
-    container_name: mailhog
     image: mailhog/mailhog:v1.0.1
     ports:
     - 8025:8025
     - 1025:1025
 
   memcached:
-    image: memcached:latest
+    image: memcached
     ports:
     - 11211:11211
 
 volumes:
   database-data:
-
