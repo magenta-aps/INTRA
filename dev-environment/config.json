@@ -1,0 +1,8 @@
+{
+    "config": {
+      "preferred-install": {
+        "os2*": "source",
+        "*": "dist"
+      }
+    }
+  }
