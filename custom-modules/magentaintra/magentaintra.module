@@ -31,7 +31,7 @@ function get_openid_auth_token() {
 
    /*
     \Drupal::logger(
-       'magenta_intra'
+       'magentaintra'
     )->notice('Got acces token: ' . $access_token);
     */
     return $access_token;

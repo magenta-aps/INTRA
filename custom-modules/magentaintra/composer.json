@@ -1,6 +1,6 @@
 {
-    "name": "magentaaps/magenta_intra",
-    "description": "Magenta_intra - Change this name and description",
+    "name": "magentaaps/magentaintra",
+    "description": "Magentaintra is a module to install and configure the intranet instance",
     "type": "drupal-module",
     "license": "GPL-2.0-or-later",
     "autoload": {
