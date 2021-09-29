@@ -65,7 +65,6 @@ services:
   kibana:
     image: kibana:7.14.0
     env_file:
-      - .env
       - dev-environment/elk.env
     ports:
     - 5601:5601
