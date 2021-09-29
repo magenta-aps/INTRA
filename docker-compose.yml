@@ -12,6 +12,8 @@ x-drupal-base: &drupal-base
       - ./dev-environment/config.json:/root/.composer/config.json
       - ./web:/opt/drupal/web/
       - ./site-settings.php:/opt/drupal/web/sites/default/settings.php
+      - ./custom-profiles:/opt/drupal/web/profiles/custom/
+
     extra_hosts:
       - "host.docker.internal:host-gateway"
 
