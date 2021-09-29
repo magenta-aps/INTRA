@@ -13,6 +13,7 @@ x-drupal-base: &drupal-base
       - ./web:/opt/drupal/web/
       - ./site-settings.php:/opt/drupal/web/sites/default/settings.php
       - ./custom-profiles:/opt/drupal/web/profiles/custom/
+      - ./custom-modules:/opt/drupal/web/modules/custom/
 
     extra_hosts:
       - "host.docker.internal:host-gateway"

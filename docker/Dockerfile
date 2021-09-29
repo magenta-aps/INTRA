@@ -36,7 +36,7 @@ COPY --chown=www-data:www-data ./docker/site-install.sh /opt/docker/site-install
 COPY --chown=www-data:www-data ./tests ./tests
 
 COPY --chown=www-data:www-data ./custom-profiles /opt/drupal/web/profiles/custom
-# COPY --chown=www-data:www-data ./custom-module /opt/drupal/web/modules/custom
+COPY --chown=www-data:www-data ./custom-modules /opt/drupal/web/modules/custom
 
 VOLUME /etc/msmtp/
 VOLUME /opt/drupal/config/sync/
