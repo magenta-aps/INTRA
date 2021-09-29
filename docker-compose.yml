@@ -12,8 +12,6 @@ services:
       retries: 5
     volumes:
     - database-data:/var/lib/postgresql/data/
-    networks:
-    - elasticsearch
 
   drupal-init:
     env_file:
@@ -25,8 +23,6 @@ services:
     depends_on:
       db:
         condition: service_healthy
-    networks:
-      - elasticsearch
 
   drupal:
     env_file:
@@ -43,8 +39,6 @@ services:
     - ./composer.lock:/opt/drupal/composer.lock
     - ./composer.json:/opt/drupal/composer.json
     - drupal-log:/var/log/apache2/
-    networks:
-      - elasticsearch
 
   mailhog:
     container_name: mailhog
@@ -67,8 +61,6 @@ services:
     ports:
     - 9200:9200
     - 9300:9300
-    networks:
-    - elasticsearch
 
   kibana:
     image: kibana:7.14.0
@@ -80,8 +72,6 @@ services:
     volumes:
       - ./kibana/config/:/usr/share/kibana/config/:ro
     depends_on:
-    - elasticsearch
-    networks:
     - elasticsearch
 
   logstash:
@@ -102,13 +92,7 @@ services:
     depends_on:
       - db
       - elasticsearch
-    networks:
-      - elasticsearch
 
 volumes:
   database-data:
   drupal-log:
-
-networks:
-  elasticsearch:
-    driver: bridge
