@@ -20,19 +20,23 @@ RUN set -eux \
 # Install composer packages and set permissions on/in Drupal folder
 WORKDIR /opt/drupal/
 COPY --chown=www-data:www-data ./composer.* ./
-RUN COMPOSER_MEMORY_LIMIT=-1 composer install \
+RUN COMPOSER_MEMORY_LIMIT=-1 \
+    COMPOSER_NO_INTERACTION=1 \
+    composer install --optimize-autoloader \
+    && composer clear-cache \
     && chown -R www-data:www-data /opt/drupal/web/
 
 # Copy configuration files
 COPY ./docker/custom-php.ini /usr/local/etc/php/conf.d/custom-php.ini
 COPY --chown=www-data:www-data ./docker/httpd.conf /etc/apache2/sites-available/000-default.conf
 COPY --chown=www-data:www-data ./docker/entrypoint.sh /opt/docker/entrypoint.sh
-COPY --chown=www-data:www-data ./web/sites/default/settings.php /opt/drupal/web/sites/default/settings.php
+COPY --chown=www-data:www-data ./site-settings.php /opt/drupal/web/sites/default/settings.php
 COPY --chown=www-data:www-data ./docker/site-install.sh /opt/docker/site-install.sh
 
 COPY --chown=www-data:www-data ./tests ./tests
 
-COPY --chown=www-data:www-data ./web/profiles/custom/magentaintra_profile /opt/drupal/web/profiles/custom/magentaintra_profile
+COPY --chown=www-data:www-data ./custom-profiles /opt/drupal/web/profiles/custom
+COPY --chown=www-data:www-data ./custom-modules /opt/drupal/web/modules/custom
 
 VOLUME /etc/msmtp/
 VOLUME /opt/drupal/config/sync/

@@ -1,11 +1,11 @@
 {
-    "name": "drupal/gir_feeds",
-    "description": "Feeds for getting data from GIR/OS2mo.",
+    "name": "magentaaps/magentaintra",
+    "description": "Magentaintra is a module to install and configure the intranet instance",
     "type": "drupal-module",
     "license": "GPL-2.0-or-later",
     "autoload": {
         "psr-4": {
-            "Drupal\\GirFeeds\\": "src/"
+            "Drupal\\MagentaIntra\\": "src/"
         }
     },
     "require": {
