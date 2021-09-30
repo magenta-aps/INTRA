@@ -1,0 +1,7 @@
+status: true
+dependencies: {  }
+index_id: intra_content
+name: 'INTRA content'
+num_of_shards: 5
+num_of_replica: 1
+server: elasticsearch

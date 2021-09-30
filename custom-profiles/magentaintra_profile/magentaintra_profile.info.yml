@@ -77,6 +77,7 @@ install:
   - dropzonejs
   - ds
   - easy_breadcrumb
+  - elasticsearch_connector
   - entity_browser
   - entity_embed
   - entity_reference_revisions
@@ -106,6 +107,7 @@ install:
   - pathauto
   - rules
   - scheduler
+  - search_api
   - simplenews
   - smart_content
   - statistics
@@ -114,7 +116,6 @@ install:
   - video_embed_field
   - video_embed_media
   - video_embed_wysiwyg
-
 
 # List any themes that should be installed as part of the profile installation.
 # Note that this will not set any theme as the default theme.

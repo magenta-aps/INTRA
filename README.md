@@ -90,5 +90,22 @@ Run Drush commands using - this command provides a full list of useful Drush com
    ```
 Full list of commands in [Drush 9](https://drushcommands.com/drush-9x/). A list such as this one is not available yet fir Drush 10 but should suffice.
 
-Developed by [Magenta Open Source IT](https://magenta.dk)
-Maintained by [Mads Nørgaard](https://github.com/madsnorgaard)
+### Using ELK-stack
+
+The ELK-stack consists of three components, which are all included in this image; Logstash, Elasticsearch and Kibana.
+
+Logstash listens for events in the Drupal database and in any logfile. 
+The logfile is a simple dummy-file, just to demonstrate, it can be mapped to logfiles in Drupal.
+From the database logstash fetches information about logins from the users of the application.
+
+Logstash forwards the information from the Drupal application to Elasticsearch, where the information is indexed.
+
+In Kibana the dashbords of the indexed information from Elasticsearch is created.
+There is stored an exampledashboard in the folder .kibana/setup.
+
+The exampledashboard can be loaded into the ELK-stack from the following link: 
+
+[Kibana objects](http://localhost:5601/app/management/kibana/objects)
+
+### Development and mantainance
+This project was developed by [Magenta Open Source IT](https://magenta.dk)
