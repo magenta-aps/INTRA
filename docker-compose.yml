@@ -100,7 +100,7 @@ services:
   logstash:
     build:
       context: .
-      dockerfile: docker/Dockerfile
+      dockerfile: logstash/Dockerfile
     env_file:
       - dev-environment/intra.env
       - dev-environment/elk.env
