@@ -99,7 +99,8 @@ services:
 
   logstash:
     build:
-      context: logstash
+      context: .
+      dockerfile: docker/Dockerfile
     env_file:
       - dev-environment/intra.env
       - dev-environment/elk.env
@@ -116,7 +117,6 @@ services:
       - db
       - elasticsearch
 
-
-
 volumes:
   database-data:
+  drupal-log:
