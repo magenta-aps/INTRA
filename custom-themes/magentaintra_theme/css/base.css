@@ -1,0 +1,233 @@
+/* GENERAL LAYOUT */
+
+body {
+  background-image: none;
+}
+
+svg.ext {
+  margin-left: .25em;
+}
+
+.wide-image {
+  margin-left: 0;
+}
+
+.social-bar {
+  display: none;
+}
+
+.container {
+  max-width: none;
+}
+
+#page-wrapper {
+  width: 100%;
+  max-width: none;
+}
+
+#page {
+  min-height: 100vh; /* for sticky footer purposes */
+  display: flex;
+  flex-direction: column;
+}
+
+#main-wrapper {
+  max-width: 98.125rem; /* instead of having max-width on #page-wrapper */
+  margin: 0 auto;
+  flex: 1; /* push footer to bottom of page */
+  width: 100%;
+}
+
+.layout__region {
+  flex-grow: 1;
+}
+
+.main-content {
+  width: 100%;
+}
+
+.site-footer {
+  border-left: 0 !important;
+}
+
+.site-footer__inner {
+  padding-top: 2.25rem;
+  padding-bottom: 2.25rem;
+}
+
+.region--sidebar .block {
+  padding: 1.125rem;
+  background-color: #f0f0f0;
+  box-shadow: 0 36px 36px -36px rgba(0, 0, 0, 0.08);
+}
+
+@media (min-width:43.75rem) {
+  .main-content__container {
+    padding-top: 4.5rem;
+  }
+}
+
+@media (max-width:62.5rem) {
+  .sidebar-grid .region--sidebar {
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 14;
+    grid-column: 2 / 14;
+    margin-top: -4.5rem;
+    padding-top: 4.5rem;
+    padding-bottom: 2.25rem;
+    border-top: 1px solid #ddd;
+  }
+}
+
+@media (max-width:43.75rem) {
+  .sidebar-grid .region--sidebar {
+    grid-column: 1 / 7;
+    margin-top: -2.25rem;
+  }
+}
+
+/* OVERRIDING OLIVERO HEADER (STICKY-NESS AND GENERAL LAYOUT) */
+
+.sticky-header-toggle {
+  height: 5.625rem;
+}
+
+.site-header {
+  min-height: 0;
+  z-index: 2000;
+}
+
+.site-header__fixable {
+  pointer-events: auto !important;
+}
+
+.site-header__fixable.is-fixed {
+  position: static !important;
+}
+
+body:not(.is-always-mobile-nav) .site-header__fixable.is-fixed {
+  top: 0;
+  max-width: 100%;
+}
+
+.site-header__initial {
+  display: none; /* disable sticky animated/collapsible header functionality */
+}
+
+.site-header__inner {
+  box-shadow: -36px 1px 36px rgba(0, 0, 0, 0.08);
+}
+
+.site-header__fixable.is-fixed .site-header__inner {
+  transform: none !important;
+  opacity: 1 !important;
+}
+
+.header-nav {
+  border-top-width: 6.75rem !important;
+}
+
+#header-nav {
+  margin-top: 0;
+}
+
+.site-branding {
+  height: auto;
+  align-items: center;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+}
+
+.mobile-buttons {
+  margin-top: 2.25rem;
+  margin-bottom: 2.25rem;
+}
+
+.block-search-wide__wrapper {
+  top: auto;
+  max-width: none;
+  width: 100%;
+}
+
+.search-block-form input[type="search"], .region--sidebar .text-content {
+  font-family: "metropolis", sans-serif;
+}
+
+.search-block-form input[type="search"] {
+  color: #fff;
+}
+
+/* TABLES WITH STICKY HEADERS */
+
+table.sticky-header {
+  font-family: "metropolis", sans-serif;
+  font-size: 1rem;
+  line-height: 1.6875rem;
+  border: 0;
+  border-collapse: collapse;
+}
+
+table.sticky-header th {
+  font-family: "metropolis", sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.125rem;
+  text-align: left;
+  letter-spacing: 0.02em;
+  margin: 0;
+  border: 0;
+  border-bottom: 2px solid #2494db;
+  padding: 1.125rem 1.125rem 1.125rem 0;
+  vertical-align: top;
+}
+
+/* STYLING OF VIEW NAMED 'forside' WITH TABLE INSIDE */
+
+.view-forside .views-table td {
+  border-width: 1px;
+}
+
+.view-forside .views-table td > :first-child {
+  margin-top: 0;
+}
+
+.view-forside .views-table td > :last-child {
+  margin-bottom: 0;
+}
+
+.view-forside th.views-field a {
+  text-decoration: none;
+}
+
+@media (min-width:62.5rem) {
+  .view-forside table {
+    table-layout: fixed;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .view-forside table .views-field-body {
+    width: 45%;
+  }
+}
+
+/* LINKS IN TEXT CONTENT OF BLOCKS (EDITED IN WYSIWYG) */
+
+.text-content a {
+  box-shadow: none !important;
+  transition: none;
+}
+
+.text-content a:hover {
+  color: #2494db;
+  text-decoration-color: #2494db !important;
+  text-decoration: underline;
+}
+
+/* ADMINISTRATION */
+
+#toolbar-administration {
+  z-index: 3000;
+  position: relative;
+}

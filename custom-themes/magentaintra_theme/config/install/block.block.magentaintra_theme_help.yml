@@ -1,0 +1,21 @@
+langcode: da
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - magentaintra_theme
+_core:
+  default_config_hash: VV9kqYMqLSoPSMw-XVpo0auKK0RfnbQTkqYPVQxqaV0
+id: magentaintra_theme_help
+theme: magentaintra_theme
+region: content_above
+weight: 0
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

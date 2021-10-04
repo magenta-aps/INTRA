@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter for blocks.
+ * This is necessary to inherit block templates from the parent theme,
+ * as the sub-theme renames the blocks with their own prefix.
+ * Source: https://www.drupal.org/node/2165673#s-inheriting-block-templates
+ */
+function magentaintra_theme_theme_suggestions_block_alter(&$suggestions, $variables) {
+
+  // Load theme suggestions for blocks from parent theme.
+  foreach ($suggestions as &$suggestion) {
+    $suggestion = str_replace('magentaintra_theme_', 'olivero_', $suggestion);
+  }
+}
