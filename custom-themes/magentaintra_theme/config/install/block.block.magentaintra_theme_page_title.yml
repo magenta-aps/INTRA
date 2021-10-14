@@ -1,0 +1,19 @@
+langcode: da
+status: true
+dependencies:
+  theme:
+    - magentaintra_theme
+_core:
+  default_config_hash: WImvmaBdDpwIqobqbDWebBnyxssRvrNEnZSQbOsvOe4
+id: magentaintra_theme_page_title
+theme: magentaintra_theme
+region: content_above
+weight: -5
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility: {  }

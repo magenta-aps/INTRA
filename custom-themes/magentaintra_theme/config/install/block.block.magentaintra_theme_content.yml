@@ -1,0 +1,21 @@
+langcode: da
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - magentaintra_theme
+_core:
+  default_config_hash: BL6Gcw5Us0zai1ADadlNYLxlEblMedc_3C3lF0PjtCE
+id: magentaintra_theme_content
+theme: magentaintra_theme
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

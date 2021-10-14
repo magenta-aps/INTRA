@@ -122,3 +122,5 @@ install:
 themes:
   - claro
   - gin
+  - olivero
+  - magentaintra_theme

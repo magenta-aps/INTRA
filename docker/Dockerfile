@@ -37,6 +37,7 @@ COPY --chown=www-data:www-data ./tests ./tests
 
 COPY --chown=www-data:www-data ./custom-profiles /opt/drupal/web/profiles/custom
 COPY --chown=www-data:www-data ./custom-modules /opt/drupal/web/modules/custom
+COPY --chown=www-data:www-data ./custom-themes /opt/drupal/web/themes/custom
 
 VOLUME /etc/msmtp/
 VOLUME /opt/drupal/config/sync/

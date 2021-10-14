@@ -12,7 +12,9 @@
 function magentaintra_profile_install() {
   $theme_list = [
       'claro',
-      'gin'
+      'gin',
+      'olivero',
+      'magentaintra_theme'
   ];
 
   // Install themes
@@ -23,7 +25,7 @@ function magentaintra_profile_install() {
 
   // Set default and admin themes
   $system_theme
-      ->set('default', 'gin')
+      ->set('default', 'magentaintra_theme')
       ->set('admin', 'gin')
       ->save();
 }
