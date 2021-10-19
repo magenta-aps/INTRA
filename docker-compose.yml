@@ -74,8 +74,6 @@ services:
 
   memcached:
     image: memcached
-    ports:
-    - 11211:11211
 
   elasticsearch:
     image: elasticsearch:7.14.0
