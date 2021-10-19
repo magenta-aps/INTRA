@@ -80,10 +80,11 @@ services:
     environment:
       - "discovery.type=single-node"
       - "bootstrap.memory_lock=true"
+       # Default heap is 1Gb. We half it here to make it lighter to run on dev
+       # machines.
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-    ports:
-      - 9200:9200
-      - 9300:9300
+    volumes:
+      - elasticsearch-data:/usr/share/elasticsearch/data
 
   kibana:
     image: kibana:7.14.0
@@ -119,3 +120,4 @@ services:
 volumes:
   database-data:
   drupal-log:
+  elasticsearch-data:
