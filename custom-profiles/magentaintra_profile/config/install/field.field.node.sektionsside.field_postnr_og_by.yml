@@ -1,0 +1,19 @@
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_postnr_og_by
+    - node.type.sektionsside
+  module:
+    - text
+id: node.sektionsside.field_postnr_og_by
+field_name: field_postnr_og_by
+entity_type: node
+bundle: sektionsside
+label: 'Postnr. og by'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

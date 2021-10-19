@@ -1,0 +1,46 @@
+status: true
+dependencies:
+  config:
+    - field.field.node.indholdsdokumenter.body
+    - field.field.node.indholdsdokumenter.field_bilag
+    - field.field.node.indholdsdokumenter.field_hr_omraader
+    - node.type.indholdsdokumenter
+  module:
+    - file
+    - text
+    - user
+id: node.indholdsdokumenter.default
+targetEntityType: node
+bundle: indholdsdokumenter
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_bilag:
+    weight: 103
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    type: file_default
+    region: content
+  field_hr_omraader:
+    weight: 102
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true

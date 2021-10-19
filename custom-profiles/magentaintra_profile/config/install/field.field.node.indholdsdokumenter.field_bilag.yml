@@ -1,0 +1,25 @@
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_bilag
+    - node.type.indholdsdokumenter
+  module:
+    - file
+id: node.indholdsdokumenter.field_bilag
+field_name: field_bilag
+entity_type: node
+bundle: indholdsdokumenter
+label: Bilag
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'txt pdf'
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

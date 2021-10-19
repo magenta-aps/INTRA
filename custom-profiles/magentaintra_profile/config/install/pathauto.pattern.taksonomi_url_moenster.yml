@@ -1,0 +1,21 @@
+status: true
+dependencies:
+  module:
+    - ctools
+    - taxonomy
+id: taksonomi_url_moenster
+label: ' Digitalisering url mønster'
+type: 'canonical_entities:taxonomy_term'
+pattern: 'digitalisering/[term:name]'
+selection_criteria:
+  f248393b-017c-4187-952d-172787fca093:
+    id: 'entity_bundle:taxonomy_term'
+    bundles:
+      digitalisering: digitalisering
+    negate: false
+    context_mapping:
+      taxonomy_term: taxonomy_term
+    uuid: f248393b-017c-4187-952d-172787fca093
+selection_logic: and
+weight: -10
+relationships: {  }

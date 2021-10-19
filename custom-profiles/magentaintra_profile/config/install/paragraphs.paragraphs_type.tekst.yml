@@ -1,0 +1,8 @@
+status: true
+dependencies: {  }
+id: tekst
+label: Tekst
+icon_uuid: null
+icon_default: null
+description: 'Et simpelt tekst element'
+behavior_plugins: {  }

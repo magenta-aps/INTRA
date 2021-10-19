@@ -104,13 +104,17 @@ install:
   - menu_block
   - module_filter
   - paragraphs
+  - paragraphs_library
   - pathauto
+  - r4032login
   - rules
   - scheduler
   - search_api
+  - shs
   - simplenews
   - smart_content
   - statistics
+  - svg_image
   - syslog
   - taxonomy_menu
   - video_embed_field

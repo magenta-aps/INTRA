@@ -1,0 +1,12 @@
+status: true
+dependencies: {  }
+id: term_name_url_link
+label: 'Term name url link'
+events:
+  -
+    event_name: 'rules_entity_insert:taxonomy_term--digitalisering'
+description: ''
+tags: {  }
+config_version: '3'
+expression:
+  id: rules_rule

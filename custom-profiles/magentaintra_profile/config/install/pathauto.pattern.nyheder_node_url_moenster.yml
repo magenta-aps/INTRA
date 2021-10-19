@@ -1,0 +1,20 @@
+status: true
+dependencies:
+  module:
+    - node
+id: nyheder_node_url_moenster
+label: 'Nyheder url mønster'
+type: 'canonical_entities:node'
+pattern: 'nyheder/[node:title]'
+selection_criteria:
+  f0cd089b-981c-4891-bd46-e5aed9e9eac9:
+    id: node_type
+    bundles:
+      nyheder: nyheder
+    negate: false
+    context_mapping:
+      node: node
+    uuid: f0cd089b-981c-4891-bd46-e5aed9e9eac9
+selection_logic: and
+weight: -5
+relationships: {  }

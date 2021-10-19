@@ -1,0 +1,6 @@
+langcode: da
+status: true
+name: Indsigt
+vid: indsigt
+description: 'Opnå indsigt på INTRA via datadrevet indhold'
+weight: 0

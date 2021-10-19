@@ -1,0 +1,19 @@
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_bygning
+    - node.type.sektionsside
+  module:
+    - text
+id: node.sektionsside.field_bygning
+field_name: field_bygning
+entity_type: node
+bundle: sektionsside
+label: Bygning
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

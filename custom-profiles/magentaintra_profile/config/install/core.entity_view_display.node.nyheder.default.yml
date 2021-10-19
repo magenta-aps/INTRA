@@ -1,0 +1,167 @@
+status: true
+dependencies:
+  config:
+    - field.field.node.nyheder.body
+    - field.field.node.nyheder.field_emne
+    - field.field.node.nyheder.field_hovedbillede
+    - field.field.node.nyheder.field_kommentar
+    - field.field.node.nyheder.field_stor_nyhed
+    - image.style.large
+    - node.type.nyheder
+  module:
+    - comment
+    - layout_builder
+    - layout_discovery
+    - layout_library
+    - svg_image
+    - text
+    - user
+third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: true
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+        components:
+          249fe14c-672d-49bc-848b-5239f200eb12:
+            uuid: 249fe14c-672d-49bc-848b-5239f200eb12
+            region: first
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'extra_field_block:node:nyheder:links'
+            additional: {  }
+            weight: 0
+          a570738e-4abc-4deb-b305-5dd79f38628b:
+            uuid: a570738e-4abc-4deb-b305-5dd79f38628b
+            region: first
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:nyheder:field_hovedbillede'
+              formatter:
+                label: above
+                settings:
+                  image_style: large
+                  image_link: ''
+                  svg_attributes:
+                    width: null
+                    height: null
+                  svg_render_as_image: true
+                third_party_settings: {  }
+                type: image
+            additional: {  }
+            weight: 1
+          c854742f-acbc-4241-bc48-1a68a83448bb:
+            uuid: c854742f-acbc-4241-bc48-1a68a83448bb
+            region: first
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:nyheder:body'
+              formatter:
+                label: hidden
+                type: text_default
+                settings: {  }
+                third_party_settings: {  }
+            additional: {  }
+            weight: 2
+          6ec206c2-4d2f-4a20-85ca-ef9c555d3782:
+            uuid: 6ec206c2-4d2f-4a20-85ca-ef9c555d3782
+            region: first
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:nyheder:field_kommentar'
+              formatter:
+                label: above
+                settings:
+                  pager_id: 1
+                  view_mode: default
+                third_party_settings: {  }
+                type: comment_default
+            additional: {  }
+            weight: 3
+          92740d51-8ee1-48e4-8a41-9ab9f4651dc8:
+            uuid: 92740d51-8ee1-48e4-8a41-9ab9f4651dc8
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:nyheder:field_stor_nyhed'
+              formatter:
+                label: above
+                settings:
+                  format: default
+                  format_custom_false: ''
+                  format_custom_true: ''
+                third_party_settings: {  }
+                type: boolean
+            additional: {  }
+            weight: 0
+        third_party_settings: {  }
+  layout_library:
+    enable: false
+_core:
+  default_config_hash: B2L1x5_fkP2I7QBVAxWz6D1Y5zJNhoW2kmYyc7u3UHY
+id: node.nyheder.default
+targetEntityType: node
+bundle: nyheder
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    region: first
+  field_hovedbillede:
+    weight: 1
+    label: above
+    settings:
+      image_style: large
+      image_link: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+    third_party_settings: {  }
+    type: image
+    region: first
+  field_kommentar:
+    weight: 3
+    label: above
+    settings:
+      pager_id: 1
+      view_mode: default
+    third_party_settings: {  }
+    type: comment_default
+    region: first
+  field_stor_nyhed:
+    weight: 4
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  links:
+    weight: 0
+    region: first
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_emne: true
+  langcode: true
+  search_api_excerpt: true

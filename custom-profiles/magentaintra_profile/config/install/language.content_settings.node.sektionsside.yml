@@ -1,0 +1,9 @@
+status: true
+dependencies:
+  config:
+    - node.type.sektionsside
+id: node.sektionsside
+target_entity_type_id: node
+target_bundle: sektionsside
+default_langcode: site_default
+language_alterable: false
