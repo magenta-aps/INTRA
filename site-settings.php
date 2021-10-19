@@ -813,7 +813,7 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
 /**
  * Memcache configuration
  */
-$settings['memcache']['servers'] = ['memcached:11211' => 'default'];
+$settings['memcache']['servers'] = [getenv('MEMCACHE_SERVER') ?: '' => 'default'];
 $settings['memcache']['bins'] = ['default' => 'default'];
 $settings['memcache']['key_prefix'] = '';
 $settings['cache']['default'] = 'cache.backend.memcache';
