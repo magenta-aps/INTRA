@@ -1,0 +1,245 @@
+status: true
+dependencies:
+  config:
+    - field.field.node.sektionsside.body
+    - field.field.node.sektionsside.field_adresse
+    - field.field.node.sektionsside.field_bygning
+    - field.field.node.sektionsside.field_e_mail
+    - field.field.node.sektionsside.field_hovedbillede
+    - field.field.node.sektionsside.field_postnr_og_by
+    - field.field.node.sektionsside.field_sektion
+    - field.field.node.sektionsside.field_telefonnummer
+    - node.type.sektionsside
+  module:
+    - layout_builder
+    - layout_discovery
+    - layout_library
+    - svg_image
+    - text
+    - user
+third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: true
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+        components:
+          5decd192-9185-4106-903e-e1336ec7c062:
+            uuid: 5decd192-9185-4106-903e-e1336ec7c062
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'extra_field_block:node:sektionsside:links'
+            additional: {  }
+            weight: 0
+          50642ebb-e1fc-42ef-8743-10651cd90dff:
+            uuid: 50642ebb-e1fc-42ef-8743-10651cd90dff
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:sektionsside:body'
+              formatter:
+                label: hidden
+                type: text_default
+                settings: {  }
+                third_party_settings: {  }
+            additional: {  }
+            weight: 1
+          6d5633b4-1923-4f0e-b98f-a45691725b22:
+            uuid: 6d5633b4-1923-4f0e-b98f-a45691725b22
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:sektionsside:field_hovedbillede'
+              formatter:
+                label: above
+                settings:
+                  svg_attributes:
+                    width: null
+                    height: null
+                  svg_render_as_image: true
+                  image_style: ''
+                  image_link: ''
+                third_party_settings: {  }
+                type: image
+            additional: {  }
+            weight: 2
+          8b70b51b-c797-4641-8e05-3531a1d68ac5:
+            uuid: 8b70b51b-c797-4641-8e05-3531a1d68ac5
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:sektionsside:field_telefonnummer'
+              formatter:
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+                type: text_default
+            additional: {  }
+            weight: 3
+          a23c485c-d0e0-43e3-b11c-3e562265fd3d:
+            uuid: a23c485c-d0e0-43e3-b11c-3e562265fd3d
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:sektionsside:field_e_mail'
+              formatter:
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+                type: basic_string
+            additional: {  }
+            weight: 4
+          9e2d937a-5cc6-4cd8-9e32-85499c7e2e90:
+            uuid: 9e2d937a-5cc6-4cd8-9e32-85499c7e2e90
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:sektionsside:field_bygning'
+              formatter:
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+                type: text_default
+            additional: {  }
+            weight: 5
+          093eeec2-c37d-4077-8175-0561a4aaf514:
+            uuid: 093eeec2-c37d-4077-8175-0561a4aaf514
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:sektionsside:field_adresse'
+              formatter:
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+                type: text_default
+            additional: {  }
+            weight: 6
+          585998be-abea-4b51-8862-681bbc46808d:
+            uuid: 585998be-abea-4b51-8862-681bbc46808d
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:sektionsside:field_postnr_og_by'
+              formatter:
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+                type: text_default
+            additional: {  }
+            weight: 7
+          d705dc46-0ed5-4b31-99db-72f3a96c85bb:
+            uuid: d705dc46-0ed5-4b31-99db-72f3a96c85bb
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:sektionsside:field_sektion'
+              formatter:
+                label: above
+                settings:
+                  link: true
+                third_party_settings: {  }
+                type: entity_reference_label
+            additional: {  }
+            weight: 8
+        third_party_settings: {  }
+  layout_library:
+    enable: false
+id: node.sektionsside.default
+targetEntityType: node
+bundle: sektionsside
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_adresse:
+    weight: 106
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_bygning:
+    weight: 105
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_e_mail:
+    weight: 104
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_hovedbillede:
+    weight: 102
+    label: above
+    settings:
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_postnr_og_by:
+    weight: 107
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_sektion:
+    weight: 108
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_telefonnummer:
+    weight: 103
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

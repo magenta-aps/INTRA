@@ -1,0 +1,14 @@
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.digitalisering.field_ikon
+    - taxonomy.vocabulary.digitalisering
+id: taxonomy_term.digitalisering.default
+targetEntityType: taxonomy_term
+bundle: digitalisering
+mode: default
+content: {  }
+hidden:
+  description: true
+  field_ikon: true
+  langcode: true

@@ -1,0 +1,21 @@
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.tekst.field_lang_tekst
+    - paragraphs.paragraphs_type.tekst
+  module:
+    - text
+id: paragraph.tekst.default
+targetEntityType: paragraph
+bundle: tekst
+mode: default
+content:
+  field_lang_tekst:
+    weight: 0
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  search_api_excerpt: true

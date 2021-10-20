@@ -1,0 +1,12 @@
+status: true
+dependencies: {  }
+id: ny_kommentar_er_oprettet
+label: 'Ny kommentar er oprettet'
+events:
+  -
+    event_name: 'rules_entity_insert:comment--kommentartype_1'
+description: 'Når en kommentar er oprettet'
+tags: {  }
+config_version: '3'
+expression:
+  id: rules_rule

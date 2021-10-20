@@ -1,0 +1,6 @@
+status: true
+dependencies: {  }
+name: Sektioner
+vid: sektioner
+description: 'Intranettets gennemgående hierarkiske struktur'
+weight: 0

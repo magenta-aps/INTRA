@@ -1,0 +1,23 @@
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.tekst.field_lang_tekst
+    - paragraphs.paragraphs_type.tekst
+  module:
+    - text
+id: paragraph.tekst.default
+targetEntityType: paragraph
+bundle: tekst
+mode: default
+content:
+  field_lang_tekst:
+    weight: 0
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+hidden:
+  created: true
+  status: true

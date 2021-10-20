@@ -1,0 +1,33 @@
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.indsigt.body
+    - field.field.node.indsigt.field_indsigtsemne
+    - field.field.node.indsigt.field_kibana_link
+    - node.type.indsigt
+  module:
+    - text
+    - user
+id: node.indsigt.teaser
+targetEntityType: node
+bundle: indsigt
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_indsigtsemne: true
+  field_kibana_link: true
+  langcode: true

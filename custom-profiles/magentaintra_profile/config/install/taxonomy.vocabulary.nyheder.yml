@@ -1,0 +1,6 @@
+langcode: da
+status: true
+name: Nyheder
+vid: nyheder
+description: 'Samling af relevant nyt for kommunens medarbejder'
+weight: 0

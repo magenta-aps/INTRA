@@ -1,0 +1,21 @@
+status: true
+dependencies:
+  module:
+    - ctools
+    - taxonomy
+id: hr_url_moenster
+label: 'HR url mønster'
+type: 'canonical_entities:taxonomy_term'
+pattern: 'hr/[term:name]'
+selection_criteria:
+  3ce2cb95-9fc4-4047-b01a-dbf84c49ebf8:
+    id: 'entity_bundle:taxonomy_term'
+    bundles:
+      hr: hr
+    negate: false
+    context_mapping:
+      taxonomy_term: taxonomy_term
+    uuid: 3ce2cb95-9fc4-4047-b01a-dbf84c49ebf8
+selection_logic: and
+weight: -9
+relationships: {  }

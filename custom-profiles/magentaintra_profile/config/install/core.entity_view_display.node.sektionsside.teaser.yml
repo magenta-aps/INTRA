@@ -1,0 +1,86 @@
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.sektionsside.body
+    - field.field.node.sektionsside.field_adresse
+    - field.field.node.sektionsside.field_bygning
+    - field.field.node.sektionsside.field_e_mail
+    - field.field.node.sektionsside.field_hovedbillede
+    - field.field.node.sektionsside.field_postnr_og_by
+    - field.field.node.sektionsside.field_sektion
+    - field.field.node.sektionsside.field_telefonnummer
+    - node.type.sektionsside
+  module:
+    - layout_builder
+    - layout_discovery
+    - layout_library
+    - text
+    - user
+third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: true
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+        components:
+          8ab6708d-d204-4dd0-8263-bb35ee772f70:
+            uuid: 8ab6708d-d204-4dd0-8263-bb35ee772f70
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'extra_field_block:node:sektionsside:links'
+            additional: {  }
+            weight: 0
+          84de056b-2557-4073-9768-e9c62d62c575:
+            uuid: 84de056b-2557-4073-9768-e9c62d62c575
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:sektionsside:body'
+              formatter:
+                label: hidden
+                type: text_summary_or_trimmed
+                settings:
+                  trim_length: 600
+                third_party_settings: {  }
+            additional: {  }
+            weight: 1
+        third_party_settings: {  }
+  layout_library:
+    enable: false
+id: node.sektionsside.teaser
+targetEntityType: node
+bundle: sektionsside
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_adresse: true
+  field_bygning: true
+  field_e_mail: true
+  field_hovedbillede: true
+  field_postnr_og_by: true
+  field_sektion: true
+  field_telefonnummer: true
+  langcode: true
+  search_api_excerpt: true

@@ -1,0 +1,19 @@
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_lang_tekst
+    - paragraphs.paragraphs_type.tekst
+  module:
+    - text
+id: paragraph.tekst.field_lang_tekst
+field_name: field_lang_tekst
+entity_type: paragraph
+bundle: tekst
+label: 'Lang tekst'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

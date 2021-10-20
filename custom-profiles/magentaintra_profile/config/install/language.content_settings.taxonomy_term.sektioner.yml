@@ -1,0 +1,9 @@
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.sektioner
+id: taxonomy_term.sektioner
+target_entity_type_id: taxonomy_term
+target_bundle: sektioner
+default_langcode: site_default
+language_alterable: false

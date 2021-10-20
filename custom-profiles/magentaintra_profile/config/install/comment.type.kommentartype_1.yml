@@ -1,0 +1,5 @@
+status: true
+id: kommentartype_1
+label: 'Kommentartype 1'
+target_entity_type_id: comment
+description: ''

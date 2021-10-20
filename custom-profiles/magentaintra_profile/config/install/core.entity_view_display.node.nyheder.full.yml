@@ -1,0 +1,141 @@
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.nyheder.body
+    - field.field.node.nyheder.field_emne
+    - field.field.node.nyheder.field_hovedbillede
+    - field.field.node.nyheder.field_kommentar
+    - field.field.node.nyheder.field_stor_nyhed
+    - image.style.large
+    - node.type.nyheder
+  module:
+    - comment
+    - layout_builder
+    - layout_discovery
+    - layout_library
+    - svg_image
+    - text
+    - user
+third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: true
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+        components:
+          2ccc65ac-079d-42ca-bd5a-aff5ee9f8ed6:
+            uuid: 2ccc65ac-079d-42ca-bd5a-aff5ee9f8ed6
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'extra_field_block:node:nyheder:links'
+            additional: {  }
+            weight: 0
+          57d5dd9d-3b1e-4a74-9962-e1d1684017c0:
+            uuid: 57d5dd9d-3b1e-4a74-9962-e1d1684017c0
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:nyheder:field_hovedbillede'
+              formatter:
+                label: hidden
+                settings:
+                  image_style: large
+                  image_link: ''
+                  svg_attributes:
+                    width: null
+                    height: null
+                  svg_render_as_image: true
+                third_party_settings: {  }
+                type: image
+            additional: {  }
+            weight: 1
+          bf2bff49-8021-4588-950d-5291d90375cb:
+            uuid: bf2bff49-8021-4588-950d-5291d90375cb
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:nyheder:body'
+              formatter:
+                label: hidden
+                type: text_default
+                settings: {  }
+                third_party_settings: {  }
+            additional: {  }
+            weight: 2
+          0e557674-2d86-4c69-8787-5be0f01bb219:
+            uuid: 0e557674-2d86-4c69-8787-5be0f01bb219
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:nyheder:field_kommentar'
+              formatter:
+                label: hidden
+                settings:
+                  pager_id: 1
+                  view_mode: default
+                third_party_settings: {  }
+                type: comment_default
+            additional: {  }
+            weight: 3
+        third_party_settings: {  }
+  layout_library:
+    enable: false
+_core:
+  default_config_hash: da6UD-UYx69DCoZG4sqlDnhR9qBjhQkgY2UWN1nLO9E
+id: node.nyheder.full
+targetEntityType: node
+bundle: nyheder
+mode: full
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_hovedbillede:
+    weight: 1
+    label: hidden
+    settings:
+      image_style: large
+      image_link: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_kommentar:
+    weight: 3
+    label: hidden
+    settings:
+      pager_id: 1
+      view_mode: default
+    third_party_settings: {  }
+    type: comment_default
+    region: content
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_emne: true
+  field_stor_nyhed: true
+  langcode: true
+  search_api_excerpt: true

@@ -1,0 +1,9 @@
+status: true
+dependencies:
+  config:
+    - node.type.destinationsside
+id: node.destinationsside
+target_entity_type_id: node
+target_bundle: destinationsside
+default_langcode: site_default
+language_alterable: false

@@ -1,0 +1,33 @@
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.indholdsdokumenter.body
+    - field.field.node.indholdsdokumenter.field_bilag
+    - field.field.node.indholdsdokumenter.field_hr_omraader
+    - node.type.indholdsdokumenter
+  module:
+    - text
+    - user
+id: node.indholdsdokumenter.teaser
+targetEntityType: node
+bundle: indholdsdokumenter
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_bilag: true
+  field_hr_omraader: true
+  langcode: true

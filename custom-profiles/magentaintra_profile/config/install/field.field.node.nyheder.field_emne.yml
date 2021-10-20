@@ -1,0 +1,27 @@
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_emne
+    - node.type.nyheder
+    - taxonomy.vocabulary.nyheder
+id: node.nyheder.field_emne
+field_name: field_emne
+entity_type: node
+bundle: nyheder
+label: Emne
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      nyheder: nyheder
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

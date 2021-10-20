@@ -1,0 +1,21 @@
+status: true
+dependencies:
+  module:
+    - ctools
+    - taxonomy
+id: nyheder_url_moenster
+label: 'Nyheder url mønster'
+type: 'canonical_entities:taxonomy_term'
+pattern: 'nyheder/[term:name]'
+selection_criteria:
+  f454e752-6c0a-4f00-ac7f-19d05c939b3b:
+    id: 'entity_bundle:taxonomy_term'
+    bundles:
+      nyheder: nyheder
+    negate: false
+    context_mapping:
+      taxonomy_term: taxonomy_term
+    uuid: f454e752-6c0a-4f00-ac7f-19d05c939b3b
+selection_logic: and
+weight: -8
+relationships: {  }

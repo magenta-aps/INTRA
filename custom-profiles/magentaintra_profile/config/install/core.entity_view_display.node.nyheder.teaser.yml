@@ -1,0 +1,58 @@
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.nyheder.body
+    - field.field.node.nyheder.field_emne
+    - field.field.node.nyheder.field_hovedbillede
+    - field.field.node.nyheder.field_kommentar
+    - field.field.node.nyheder.field_stor_nyhed
+    - node.type.nyheder
+  module:
+    - comment
+    - svg_image
+    - text
+    - user
+_core:
+  default_config_hash: ZnoNehtDQJqa3tIJN1seoK9zT5I2zhZSXs0-xuMQEvA
+id: node.nyheder.teaser
+targetEntityType: node
+bundle: nyheder
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 1
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  field_hovedbillede:
+    type: image
+    weight: 3
+    region: content
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+  field_kommentar:
+    type: comment_default
+    weight: 2
+    region: content
+    label: above
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_emne: true
+  field_stor_nyhed: true
+  langcode: true
+  search_api_excerpt: true

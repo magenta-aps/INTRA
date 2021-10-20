@@ -1,0 +1,5 @@
+status: true
+dependencies: {  }
+name: manual_crop
+label: 'manual crop'
+effects: {  }

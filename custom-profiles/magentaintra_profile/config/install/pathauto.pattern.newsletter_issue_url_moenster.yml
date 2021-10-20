@@ -1,0 +1,20 @@
+status: true
+dependencies:
+  module:
+    - node
+id: newsletter_issue_url_moenster
+label: 'Newsletter Issue url mønster'
+type: 'canonical_entities:node'
+pattern: 'newsletter/[node:title]'
+selection_criteria:
+  d40b2051-713c-41b6-9368-b1d26ad53abd:
+    id: node_type
+    bundles:
+      simplenews_issue: simplenews_issue
+    negate: false
+    context_mapping:
+      node: node
+    uuid: d40b2051-713c-41b6-9368-b1d26ad53abd
+selection_logic: and
+weight: -5
+relationships: {  }
