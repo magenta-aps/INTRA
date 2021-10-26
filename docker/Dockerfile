@@ -24,6 +24,7 @@ RUN COMPOSER_MEMORY_LIMIT=-1 \
     COMPOSER_NO_INTERACTION=1 \
     composer install --optimize-autoloader \
     && composer clear-cache \
+    && install --owner=www-data --group=www-data -d /opt/drupal/web/public-files/ \
     && chown -R www-data:www-data /opt/drupal/web/
 
 # Copy configuration files
@@ -41,7 +42,10 @@ COPY --chown=www-data:www-data ./custom-themes /opt/drupal/web/themes/custom
 
 VOLUME /etc/msmtp/
 VOLUME /opt/drupal/config/sync/
+# For static js, css et. al. files.
 VOLUME /opt/drupal/web/sites/default/
+# For user uploaded files.
+VOLUME /opt/drupal/web/public-files/
 
 # Listen on Apache network port
 EXPOSE 80
