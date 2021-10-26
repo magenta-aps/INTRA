@@ -15,6 +15,7 @@ x-drupal-base: &drupal-base
       - ./custom-profiles:/opt/drupal/web/profiles/custom/
       - ./custom-modules:/opt/drupal/web/modules/custom/
       - ./custom-themes:/opt/drupal/web/themes/custom/
+      - drupal-public-files:/opt/drupal/web/public-files
     extra_hosts:
       - "host.docker.internal:host-gateway"
 
@@ -86,5 +87,6 @@ services:
       - elasticsearch-data:/usr/share/elasticsearch/data
 
 volumes:
+  drupal-public-files:
   database-data:
   elasticsearch-data:
