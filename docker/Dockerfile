@@ -24,6 +24,7 @@ RUN COMPOSER_MEMORY_LIMIT=-1 \
     COMPOSER_NO_INTERACTION=1 \
     composer install --optimize-autoloader \
     && composer clear-cache \
+    && install --owner=www-data --group=www-data -d /opt/drupal/config/sync \
     && install --owner=www-data --group=www-data -d /opt/drupal/web/public-files/ \
     && chown -R www-data:www-data /opt/drupal/web/
 
