@@ -231,3 +231,9 @@ table.sticky-header th {
   z-index: 3000;
   position: relative;
 }
+
+/* FORM */
+
+.form-item__label {
+  font-weight: bold;
+}
