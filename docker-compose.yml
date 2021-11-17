@@ -15,6 +15,7 @@ x-drupal-base: &drupal-base
       - ./custom-profiles:/opt/drupal/web/profiles/custom/
       - ./custom-modules:/opt/drupal/web/modules/custom/
       - ./custom-themes:/opt/drupal/web/themes/custom/
+      - ./translations:/opt/drupal/translations/
       - drupal-public-files:/opt/drupal/web/public-files
     extra_hosts:
       - "host.docker.internal:host-gateway"
@@ -34,7 +35,7 @@ services:
     #
     # The web folder become owned by root. We run chmod o+w on it to make sure
     # the user account on the host machine can access it.
-    command: ["sh", "-c", "composer install && chmod -R o+w web"]
+    command: ["sh", "-c", "composer install && chmod -R a+w web"]
 
   drupal-init:
     <<: *drupal-base

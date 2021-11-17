@@ -793,6 +793,25 @@ $settings['entity_update_backup'] = TRUE;
 $settings['migrate_node_migrate_type_classic'] = FALSE;
 
 /**
+ * Memcache configuration
+ */
+$settings['memcache']['servers'] = [getenv('MEMCACHE_SERVER') ?: '' => 'default'];
+$settings['memcache']['bins'] = ['default' => 'default'];
+$settings['memcache']['key_prefix'] = '';
+$settings['cache']['default'] = 'cache.backend.memcache';
+
+/**
+ * Settings http request timeout to 120 seconds to avoid timeout on feed imports from GIR
+ */
+$settings['http_client_config']['timeout'] = 120;
+
+/**
+ * Set translations to local path only and local translations directory
+ */
+$config['locale.settings']['translation']['use_source'] = getenv('TRANSLATION_SOURCE') ?: 'local';
+$config['locale.settings']['translation']['path'] = '/opt/drupal/translations';
+
+/**
  * Load local development override configuration, if available.
  *
  * Create a settings.local.php file to override variables on secondary (staging,
@@ -810,15 +829,3 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
 
-/**
- * Memcache configuration
- */
-$settings['memcache']['servers'] = [getenv('MEMCACHE_SERVER') ?: '' => 'default'];
-$settings['memcache']['bins'] = ['default' => 'default'];
-$settings['memcache']['key_prefix'] = '';
-$settings['cache']['default'] = 'cache.backend.memcache';
-
-/**
- * Settings http request timeout to 120 seconds to avoid timeout on feed imports from GIR
- */
-$settings['http_client_config']['timeout'] = 120;
