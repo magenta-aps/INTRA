@@ -20,3 +20,9 @@ if ! drush core-status --field=bootstrap | grep -q Successful ; then
 else
     echo "Drupal already bootstrapped - skipping install"
 fi
+
+echo "Update translations"
+drush locale-check
+drush locale-update
+drush locale-import da /opt/drupal/translations/project_specific-custom.da.po --type=customized --override=all
+# Read the translations section in the README.md for developer docs on updating translations.

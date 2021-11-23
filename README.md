@@ -69,6 +69,74 @@ When a version update is needed, use `composer update vendor/package`.
 
 On first run, the `composer.lock` file was generated using `composer update` without further parameters.
 
+#### Updating translations for developers
+
+We store our full translation in the repository in the '/opt/drupal/translations' directory. All translations are deployed in order to have full control.
+In Drupal 9 we use the Gettext po file format for translations. We do not overwrite translations made on production systems using GUI.
+We use Drupal core and Drush as much as possible:`
+'drush locale:import` is available since Drush 9.5.0
+`drush locale:export` is available since Drush 10.3.0
+
+There are three streams that make up the Drupal 9 translation interface
+1. Community translations for core and contributed modules
+2. Interface translation for custom modules and theme
+3. Custom interface translations that override the other translations
+
+##### Community translations
+
+The Locale module, shipped with core, can download community translations from the translation server at https://localize.drupal.org/. 
+Since we want to have full control over which translations gets used and when, we download translations from this server with Drush into the development environment. 
+From there the translation files get stored in the Git repo. During deployment the translations on staging or production gets updated using the translation files stored in the repository.
+
+##### Translations for custom code
+
+Custom modules and themes can contain new translatable strings. 
+The developer either exports the translatable strings with the Potx module, or manually creates a gettext .po file with the strings and their translation. 
+Register the translation file by adding the lines below to the module.info.yml file. Note that the po file name does not contain a module version number (e.g. example.da.po).   
+   ```yaml
+   // modules/contrib/%project.info.yml
+
+    interface translation project: {module name}
+    interface translation server pattern: modules/custom/%project/translations/%project.%language.po
+   ```
+The gettext .po file that contains the translations of the ‘example’ module is placed in the path assigned above. For example: `modules/custom/example/translations/example.da.po.`
+
+##### Custom translations
+
+Custom translations override the other translations. Custom Translations are flagged in the database as custom. Custom translations are not overridden by the default translation import. 
+
+In a project, custom translations are particularly useful to override community translations, for example to change message texts.
+
+##### Our configuration
+
+For full control we only import local translations and follow these guidelines during deployment:
+1. Never check for updates.
+2. Only use local translation source.
+3. Only overwrite imported translations.
+
+NOTE: We update our translation with changes automatically on each init-container run.
+
+###### Development environment
+
+The development environment can be configured differently from staging and production using an environment variable. 
+It uses the remote and local translation source. We can set the source in `dev-environment/intra.env` during development:
+
+   ```
+    TRANSLATION_SOURCE=remote_and_local
+   ```
+Restart your docker container and new community and third party module translations will be downloaded to the `/opt/drupal/translations` folder:
+   ```sh
+   $ docker-compose up
+   ```
+###### Update project translations
+
+For project specific translation we use `translations/project_specific-custom.da.po` file which will update the development instance on container rebuild or restart.
+After an update to translations we must push the changes to our remote repository.
+During development we import interface translations for core, contributed modules and custom modules. These updated .po files should be committed to the repository to update the translations in production.
+
+The translations directory is placed outside the webroot and included in the repository. 
+Our interface translations directory is set to: `/opt/drupal/translations` (see `http://localhost:9998/admin/config/media/file-system`)
+
 #### Running test with Codeception
 
 Run Acceptance test:

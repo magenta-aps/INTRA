@@ -32,10 +32,11 @@ do
 done
 echo Connected to database.
 
+# Check if Drupal is installed (bootstrapped) and run commands if true
 if drush core-status --field=bootstrap | grep -q Successful ; then
-  # Run database update and clear cache if we are bootstrapped
-  drush updb -y
-  drush cr
+echo "Run database update to trigger changes to schema for updated modules and rebuild cache"
+  drush updatedb -y
+  drush cache-rebuild
 fi
 
 exec "$@"
