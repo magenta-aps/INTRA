@@ -97,6 +97,8 @@ install:
   - linkit
   - masquerade
   - masquerade_log
+  - matomo
+  - matomo_reports
   - media
   - media_library
   - memcache
