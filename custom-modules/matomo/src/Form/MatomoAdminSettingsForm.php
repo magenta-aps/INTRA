@@ -585,61 +585,8 @@ class MatomoAdminSettingsForm extends ConfigFormBase {
       $form_state->setErrorByName('matomo_site_id', $this->t('A valid Matomo site ID is an integer only.'));
     }
 
-    $url = $form_state->getValue('matomo_url_http');
-    if ($url && substr($url, -strlen('/')) !== '/') {
-      $url .= '/';
-      $form_state->setValueForElement($form['general']['matomo_url_http'], $url);
-    }
-    $url = $url . 'matomo.php';
-    $skip_error_check = $form_state->getValue('matomo_url_skiperror');
-    try {
-      $result = $this->httpClient->request('GET', $url);
-      if (!$skip_error_check && $result->getStatusCode() != 200) {
-        $form_state->setErrorByName('matomo_url_http', $this->t('The validation of "@url" failed with error "@error" (HTTP code @code).', [
-          '@url' => UrlHelper::filterBadProtocol($url),
-          '@error' => $result->getReasonPhrase(),
-          '@code' => $result->getStatusCode(),
-        ]));
-      }
-    }
-    catch (RequestException $exception) {
-      if (!$skip_error_check) {
-        $form_state->setErrorByName('matomo_url_http', $this->t('The validation of "@url" failed with an exception "@error" (HTTP code @code).', [
-          '@url' => UrlHelper::filterBadProtocol($url),
-          '@error' => $exception->getMessage(),
-          '@code' => $exception->getCode(),
-        ]));
-      }
-    }
-
-    $matomo_url_https = $form_state->getValue('matomo_url_https');
-    if (!empty($matomo_url_https)) {
-      $url = $matomo_url_https;
-      if (substr($url, -strlen('/')) !== '/') {
-        $url .= '/';
-        $form_state->setValueForElement($form['general']['matomo_url_https'], $url);
-      }
-      $url = $url . 'matomo.php';
-      try {
-        $result = $this->httpClient->request('GET', $url);
-        if (!$skip_error_check && $result->getStatusCode() != 200) {
-          $form_state->setErrorByName('matomo_url_https', $this->t('The validation of "@url" failed with error "@error" (HTTP code @code).', [
-            '@url' => UrlHelper::filterBadProtocol($url),
-            '@error' => $result->getReasonPhrase(),
-            '@code' => $result->getStatusCode(),
-          ]));
-        }
-      }
-      catch (RequestException $exception) {
-        if (!$skip_error_check) {
-          $form_state->setErrorByName('matomo_url_https', $this->t('The validation of "@url" failed with an exception "@error" (HTTP code @code).', [
-            '@url' => UrlHelper::filterBadProtocol($url),
-            '@error' => $exception->getMessage(),
-            '@code' => $exception->getCode(),
-          ]));
-        }
-      }
-    }
+    # Removed validation of matomo_url_http(s) as $this->httpClient->request('GET', $url);
+    # returns null and therefore doesn't allow the form to save.
 
     // Verify that every path is prefixed with a slash, but don't check PHP
     // code snippets and do not check for slashes if no paths configured.
