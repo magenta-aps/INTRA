@@ -1,0 +1,14 @@
+{
+    "name": "drupal/matomo",
+    "type": "drupal-module",
+    "description": "Adds Matomo javascript tracking code to all your site's pages.",
+    "license": "GPL-2.0-or-later",
+    "conflict": {
+        "drupal/csp": "<1.12"
+    },
+    "require-dev": {
+        "drupal/php": "~1.1",
+        "drupal/token": "~1.9",
+        "drupal/csp": "~1.12"
+    }
+}

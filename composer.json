@@ -51,7 +51,6 @@
         "drupal/linkit": "^6",
         "drupal/masquerade": "^2.0@beta",
         "drupal/masquerade_log": "^1.0",
-        "drupal/matomo": "^1.14",
         "drupal/matomo_reports": "^1.1",
         "drupal/memcache": "^2.3",
         "drupal/menu_block": "^1.7",
