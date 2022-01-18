@@ -87,7 +87,24 @@ services:
     volumes:
       - elasticsearch-data:/usr/share/elasticsearch/data
 
+  matomo-db:
+    image: mariadb:10.6
+    env_file:
+      - dev-environment/matomo_db.env
+    volumes:
+      - matomo_db-data:/var/lib/mysql
+
+  matomo:
+    image: bitnami/matomo:4
+    ports:
+      - 8090:8080
+    env_file:
+      - dev-environment/matomo.env
+    depends_on:
+      - matomo-db
+
 volumes:
   drupal-public-files:
   database-data:
   elasticsearch-data:
+  matomo_db-data:

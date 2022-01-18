@@ -51,6 +51,7 @@
         "drupal/linkit": "^6",
         "drupal/masquerade": "^2.0@beta",
         "drupal/masquerade_log": "^1.0",
+        "drupal/matomo_reports": "^1.1",
         "drupal/memcache": "^2.3",
         "drupal/menu_block": "^1.7",
         "drupal/module_filter": "^3.2",
@@ -88,7 +89,15 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "simplesamlphp/composer-module-installer": true,
+            "composer/installers": true,
+            "drupal/core-composer-scaffold": true,
+            "drupal/core-project-message": true,
+            "oomphinc/composer-installers-extender": true,
+            "wikimedia/composer-merge-plugin": true
+        }
     },
     "extra": {
         "merge-plugin": {
